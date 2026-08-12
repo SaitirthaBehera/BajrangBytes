@@ -1,2 +1,2 @@
 # BajrangBytes
-Find your destination. Follow the smartest route.
+Find your destination.  Follow the smartest route.
