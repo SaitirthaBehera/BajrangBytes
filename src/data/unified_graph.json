@@ -1,0 +1,7618 @@
+{
+  "nodes": [
+    {
+      "id": "main_entrance",
+      "label": "Main Campus Entrance",
+      "building_id": "outdoor",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 12,
+        "y": 78
+      }
+    },
+    {
+      "id": "parking_area",
+      "label": "Two-Wheeler Parking (ITI17)",
+      "building_id": "outdoor",
+      "floor": 0,
+      "type": "parking",
+      "accessible": true,
+      "coords": {
+        "x": 31,
+        "y": 10
+      }
+    },
+    {
+      "id": "roundabout",
+      "label": "Central Campus Roundabout",
+      "building_id": "outdoor",
+      "floor": 0,
+      "type": "junction",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "football_ground",
+      "label": "Football Ground",
+      "building_id": "outdoor",
+      "floor": 0,
+      "type": "outdoor_facility",
+      "accessible": true,
+      "coords": {
+        "x": 55,
+        "y": 30
+      }
+    },
+    {
+      "id": "cricket_ground",
+      "label": "Cricket Ground",
+      "building_id": "outdoor",
+      "floor": 0,
+      "type": "outdoor_facility",
+      "accessible": true,
+      "coords": {
+        "x": 20,
+        "y": 85
+      }
+    },
+    {
+      "id": "iter_cafeteria",
+      "label": "ITER Central Cafeteria",
+      "building_id": "outdoor",
+      "floor": 0,
+      "type": "facility",
+      "accessible": true,
+      "coords": {
+        "x": 75,
+        "y": 70
+      }
+    },
+    {
+      "id": "block_a_entrance",
+      "label": "Block A Entrance",
+      "building_id": "block_a",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 28,
+        "y": 55
+      }
+    },
+    {
+      "id": "block_b_entrance",
+      "label": "Block B Entrance",
+      "building_id": "block_b",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 42,
+        "y": 55
+      }
+    },
+    {
+      "id": "block_c_football_entrance",
+      "label": "Block C (Football Ground Entrance)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 58,
+        "y": 45
+      }
+    },
+    {
+      "id": "block_c_sc_entrance",
+      "label": "Block C (SC Block Side Entrance)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 58,
+        "y": 65
+      }
+    },
+    {
+      "id": "block_d_entrance",
+      "label": "Block D Entrance",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 74,
+        "y": 55
+      }
+    },
+    {
+      "id": "block_e_main_entrance",
+      "label": "Block E Main Entrance (Ground)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 88,
+        "y": 55
+      }
+    },
+    {
+      "id": "block_e_f1_entrance",
+      "label": "Block E Floor 1 External Entrance",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "entrance",
+      "accessible": false,
+      "coords": {
+        "x": 88,
+        "y": 55
+      }
+    },
+    {
+      "id": "block_f_entrance",
+      "label": "Block F Entrance",
+      "building_id": "block_f",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 72,
+        "y": 28
+      }
+    },
+    {
+      "id": "library_entrance",
+      "label": "Central Library Entrance",
+      "building_id": "library",
+      "floor": 0,
+      "type": "facility",
+      "accessible": true,
+      "coords": {
+        "x": 25,
+        "y": 70
+      }
+    },
+    {
+      "id": "auditorium_entrance",
+      "label": "Main Auditorium Entrance",
+      "building_id": "auditorium",
+      "floor": 0,
+      "type": "facility",
+      "accessible": true,
+      "coords": {
+        "x": 85,
+        "y": 78
+      }
+    },
+    {
+      "id": "sc_block_entrance",
+      "label": "SC Block Entrance",
+      "building_id": "sc_block",
+      "floor": 0,
+      "type": "facility",
+      "accessible": true,
+      "coords": {
+        "x": 65,
+        "y": 75
+      }
+    },
+    {
+      "id": "ds_block_entrance",
+      "label": "Data Science Block Entrance",
+      "building_id": "ds_block",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 30,
+        "y": 32
+      }
+    },
+    {
+      "id": "e_f0_lift1",
+      "label": "Block E Floor 0 \u2014 Lift 1 (West)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 88
+      }
+    },
+    {
+      "id": "e_f0_lift2",
+      "label": "Block E Floor 0 \u2014 Lift 2 (West)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 93
+      }
+    },
+    {
+      "id": "e_f0_lift3",
+      "label": "Block E Floor 0 \u2014 Lift 3 (East)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 6
+      }
+    },
+    {
+      "id": "e_f0_lift4",
+      "label": "Block E Floor 0 \u2014 Lift 4 (East)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 13
+      }
+    },
+    {
+      "id": "e_f0_stairs",
+      "label": "Block E Floor 0 \u2014 Main Stairs",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 6,
+        "y": 78
+      }
+    },
+    {
+      "id": "e_f0_boy_toilet",
+      "label": "Block E Floor 0 \u2014 Boy's Restroom",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "id": "e_f0_girl_toilet",
+      "label": "Block E Floor 0 \u2014 Girl's Restroom",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 28
+      }
+    },
+    {
+      "id": "e_f0_west_corridor",
+      "label": "Block E Floor 0 \u2014 West Corridor",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 15,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_north_corridor",
+      "label": "Block E Floor 0 \u2014 North Corridor",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 20
+      }
+    },
+    {
+      "id": "e_f0_east_corridor",
+      "label": "Block E Floor 0 \u2014 East Corridor",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_south_corridor",
+      "label": "Block E Floor 0 \u2014 South Corridor",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 75
+      }
+    },
+    {
+      "id": "e_f0_bridge_d",
+      "label": "Block E Floor 0 \u2014 Bridge to Block D",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 42
+      }
+    },
+    {
+      "id": "e_f0_r01",
+      "label": "E-001 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r02",
+      "label": "E-002 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r03",
+      "label": "E-003 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r04",
+      "label": "E-004 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r05",
+      "label": "E-005 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r06",
+      "label": "E-006 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r07",
+      "label": "E-007 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r08",
+      "label": "E-008 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r09",
+      "label": "E-009 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r10",
+      "label": "E-010 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r11",
+      "label": "E-011 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r12",
+      "label": "E-012 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r13",
+      "label": "E-013 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r14",
+      "label": "E-014 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r15",
+      "label": "E-015 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r16",
+      "label": "E-016 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r17",
+      "label": "E-017 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r18",
+      "label": "E-018 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f0_r19",
+      "label": "E-019 (Block E Floor 0)",
+      "building_id": "block_e",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_lift1",
+      "label": "Block E Floor 1 \u2014 Lift 1 (West)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 88
+      }
+    },
+    {
+      "id": "e_f1_lift2",
+      "label": "Block E Floor 1 \u2014 Lift 2 (West)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 93
+      }
+    },
+    {
+      "id": "e_f1_lift3",
+      "label": "Block E Floor 1 \u2014 Lift 3 (East)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 6
+      }
+    },
+    {
+      "id": "e_f1_lift4",
+      "label": "Block E Floor 1 \u2014 Lift 4 (East)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 13
+      }
+    },
+    {
+      "id": "e_f1_stairs",
+      "label": "Block E Floor 1 \u2014 Main Stairs",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 6,
+        "y": 78
+      }
+    },
+    {
+      "id": "e_f1_boy_toilet",
+      "label": "Block E Floor 1 \u2014 Boy's Restroom",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "id": "e_f1_girl_toilet",
+      "label": "Block E Floor 1 \u2014 Girl's Restroom",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 28
+      }
+    },
+    {
+      "id": "e_f1_west_corridor",
+      "label": "Block E Floor 1 \u2014 West Corridor",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 15,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_north_corridor",
+      "label": "Block E Floor 1 \u2014 North Corridor",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 20
+      }
+    },
+    {
+      "id": "e_f1_east_corridor",
+      "label": "Block E Floor 1 \u2014 East Corridor",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_south_corridor",
+      "label": "Block E Floor 1 \u2014 South Corridor",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 75
+      }
+    },
+    {
+      "id": "e_f1_bridge_d",
+      "label": "Block E Floor 1 \u2014 Bridge to Block D",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 42
+      }
+    },
+    {
+      "id": "e_f1_r01",
+      "label": "E-101 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r02",
+      "label": "E-102 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r03",
+      "label": "E-103 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r04",
+      "label": "E-104 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r05",
+      "label": "E-105 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r06",
+      "label": "E-106 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r07",
+      "label": "E-107 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r08",
+      "label": "E-108 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r09",
+      "label": "E-109 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r10",
+      "label": "E-110 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r11",
+      "label": "E-111 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r12",
+      "label": "E-112 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r13",
+      "label": "E-113 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r14",
+      "label": "E-114 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r15",
+      "label": "E-115 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r16",
+      "label": "E-116 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r17",
+      "label": "E-117 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r18",
+      "label": "E-118 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f1_r19",
+      "label": "E-119 (Block E Floor 1)",
+      "building_id": "block_e",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_lift1",
+      "label": "Block E Floor 2 \u2014 Lift 1 (West)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 88
+      }
+    },
+    {
+      "id": "e_f2_lift2",
+      "label": "Block E Floor 2 \u2014 Lift 2 (West)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 93
+      }
+    },
+    {
+      "id": "e_f2_lift3",
+      "label": "Block E Floor 2 \u2014 Lift 3 (East)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 6
+      }
+    },
+    {
+      "id": "e_f2_lift4",
+      "label": "Block E Floor 2 \u2014 Lift 4 (East)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 13
+      }
+    },
+    {
+      "id": "e_f2_stairs",
+      "label": "Block E Floor 2 \u2014 Main Stairs",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 6,
+        "y": 78
+      }
+    },
+    {
+      "id": "e_f2_boy_toilet",
+      "label": "Block E Floor 2 \u2014 Boy's Restroom",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "id": "e_f2_girl_toilet",
+      "label": "Block E Floor 2 \u2014 Girl's Restroom",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 28
+      }
+    },
+    {
+      "id": "e_f2_west_corridor",
+      "label": "Block E Floor 2 \u2014 West Corridor",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 15,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_north_corridor",
+      "label": "Block E Floor 2 \u2014 North Corridor",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 20
+      }
+    },
+    {
+      "id": "e_f2_east_corridor",
+      "label": "Block E Floor 2 \u2014 East Corridor",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_south_corridor",
+      "label": "Block E Floor 2 \u2014 South Corridor",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 75
+      }
+    },
+    {
+      "id": "e_f2_bridge_d",
+      "label": "Block E Floor 2 \u2014 Bridge to Block D",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 42
+      }
+    },
+    {
+      "id": "e_f2_r01",
+      "label": "E-201 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r02",
+      "label": "E-202 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r03",
+      "label": "E-203 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r04",
+      "label": "E-204 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r05",
+      "label": "E-205 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r06",
+      "label": "E-206 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r07",
+      "label": "E-207 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r08",
+      "label": "E-208 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r09",
+      "label": "E-209 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r10",
+      "label": "E-210 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r11",
+      "label": "E-211 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r12",
+      "label": "E-212 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r13",
+      "label": "E-213 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r14",
+      "label": "E-214 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r15",
+      "label": "E-215 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r16",
+      "label": "E-216 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r17",
+      "label": "E-217 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r18",
+      "label": "E-218 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f2_r19",
+      "label": "E-219 (Block E Floor 2)",
+      "building_id": "block_e",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_lift1",
+      "label": "Block E Floor 3 \u2014 Lift 1 (West)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 88
+      }
+    },
+    {
+      "id": "e_f3_lift2",
+      "label": "Block E Floor 3 \u2014 Lift 2 (West)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 93
+      }
+    },
+    {
+      "id": "e_f3_lift3",
+      "label": "Block E Floor 3 \u2014 Lift 3 (East)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 6
+      }
+    },
+    {
+      "id": "e_f3_lift4",
+      "label": "Block E Floor 3 \u2014 Lift 4 (East)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 13
+      }
+    },
+    {
+      "id": "e_f3_stairs",
+      "label": "Block E Floor 3 \u2014 Main Stairs",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 6,
+        "y": 78
+      }
+    },
+    {
+      "id": "e_f3_boy_toilet",
+      "label": "Block E Floor 3 \u2014 Boy's Restroom",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "id": "e_f3_girl_toilet",
+      "label": "Block E Floor 3 \u2014 Girl's Restroom",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 28
+      }
+    },
+    {
+      "id": "e_f3_west_corridor",
+      "label": "Block E Floor 3 \u2014 West Corridor",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 15,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_north_corridor",
+      "label": "Block E Floor 3 \u2014 North Corridor",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 20
+      }
+    },
+    {
+      "id": "e_f3_east_corridor",
+      "label": "Block E Floor 3 \u2014 East Corridor",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_south_corridor",
+      "label": "Block E Floor 3 \u2014 South Corridor",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 75
+      }
+    },
+    {
+      "id": "e_f3_r01",
+      "label": "E-301 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r02",
+      "label": "E-302 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r03",
+      "label": "E-303 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r04",
+      "label": "E-304 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r05",
+      "label": "E-305 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r06",
+      "label": "E-306 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r07",
+      "label": "E-307 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r08",
+      "label": "E-308 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r09",
+      "label": "E-309 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r10",
+      "label": "E-310 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r11",
+      "label": "E-311 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r12",
+      "label": "E-312 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r13",
+      "label": "E-313 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r14",
+      "label": "E-314 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r15",
+      "label": "E-315 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r16",
+      "label": "E-316 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r17",
+      "label": "E-317 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r18",
+      "label": "E-318 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f3_r19",
+      "label": "E-319 (Block E Floor 3)",
+      "building_id": "block_e",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_lift1",
+      "label": "Block E Floor 4 \u2014 Lift 1 (West)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 88
+      }
+    },
+    {
+      "id": "e_f4_lift2",
+      "label": "Block E Floor 4 \u2014 Lift 2 (West)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 93
+      }
+    },
+    {
+      "id": "e_f4_lift3",
+      "label": "Block E Floor 4 \u2014 Lift 3 (East)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 6
+      }
+    },
+    {
+      "id": "e_f4_lift4",
+      "label": "Block E Floor 4 \u2014 Lift 4 (East)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 13
+      }
+    },
+    {
+      "id": "e_f4_stairs",
+      "label": "Block E Floor 4 \u2014 Main Stairs",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 6,
+        "y": 78
+      }
+    },
+    {
+      "id": "e_f4_boy_toilet",
+      "label": "Block E Floor 4 \u2014 Boy's Restroom",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "id": "e_f4_girl_toilet",
+      "label": "Block E Floor 4 \u2014 Girl's Restroom",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 28
+      }
+    },
+    {
+      "id": "e_f4_west_corridor",
+      "label": "Block E Floor 4 \u2014 West Corridor",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 15,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_north_corridor",
+      "label": "Block E Floor 4 \u2014 North Corridor",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 20
+      }
+    },
+    {
+      "id": "e_f4_east_corridor",
+      "label": "Block E Floor 4 \u2014 East Corridor",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_south_corridor",
+      "label": "Block E Floor 4 \u2014 South Corridor",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 75
+      }
+    },
+    {
+      "id": "e_f4_r01",
+      "label": "E-401 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r02",
+      "label": "E-402 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r03",
+      "label": "E-403 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r04",
+      "label": "E-404 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r05",
+      "label": "E-405 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r06",
+      "label": "E-406 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r07",
+      "label": "E-407 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r08",
+      "label": "E-408 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r09",
+      "label": "E-409 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r10",
+      "label": "E-410 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r11",
+      "label": "E-411 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r12",
+      "label": "E-412 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r13",
+      "label": "E-413 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r14",
+      "label": "E-414 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r15",
+      "label": "E-415 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r16",
+      "label": "E-416 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r17",
+      "label": "E-417 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r18",
+      "label": "E-418 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f4_r19",
+      "label": "E-419 (Block E Floor 4)",
+      "building_id": "block_e",
+      "floor": 4,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_lift1",
+      "label": "Block E Floor 5 \u2014 Lift 1 (West)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 88
+      }
+    },
+    {
+      "id": "e_f5_lift2",
+      "label": "Block E Floor 5 \u2014 Lift 2 (West)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 93
+      }
+    },
+    {
+      "id": "e_f5_lift3",
+      "label": "Block E Floor 5 \u2014 Lift 3 (East)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 6
+      }
+    },
+    {
+      "id": "e_f5_lift4",
+      "label": "Block E Floor 5 \u2014 Lift 4 (East)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "lift",
+      "accessible": true,
+      "coords": {
+        "x": 93,
+        "y": 13
+      }
+    },
+    {
+      "id": "e_f5_stairs",
+      "label": "Block E Floor 5 \u2014 Main Stairs",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 6,
+        "y": 78
+      }
+    },
+    {
+      "id": "e_f5_boy_toilet",
+      "label": "Block E Floor 5 \u2014 Boy's Restroom",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 8,
+        "y": 10
+      }
+    },
+    {
+      "id": "e_f5_girl_toilet",
+      "label": "Block E Floor 5 \u2014 Girl's Restroom",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 28
+      }
+    },
+    {
+      "id": "e_f5_west_corridor",
+      "label": "Block E Floor 5 \u2014 West Corridor",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 15,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_north_corridor",
+      "label": "Block E Floor 5 \u2014 North Corridor",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 20
+      }
+    },
+    {
+      "id": "e_f5_east_corridor",
+      "label": "Block E Floor 5 \u2014 East Corridor",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_south_corridor",
+      "label": "Block E Floor 5 \u2014 South Corridor",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 75
+      }
+    },
+    {
+      "id": "e_f5_r01",
+      "label": "E-501 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r02",
+      "label": "E-502 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r03",
+      "label": "E-503 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r04",
+      "label": "E-504 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r05",
+      "label": "E-505 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r06",
+      "label": "E-506 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r07",
+      "label": "E-507 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r08",
+      "label": "E-508 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r09",
+      "label": "E-509 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r10",
+      "label": "E-510 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r11",
+      "label": "E-511 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r12",
+      "label": "E-512 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r13",
+      "label": "E-513 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r14",
+      "label": "E-514 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r15",
+      "label": "E-515 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r16",
+      "label": "E-516 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r17",
+      "label": "E-517 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r18",
+      "label": "E-518 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "e_f5_r19",
+      "label": "E-519 (Block E Floor 5)",
+      "building_id": "block_e",
+      "floor": 5,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_stairs1",
+      "label": "Block C Floor 0 \u2014 Stairs 1 (North-West)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 28,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f0_stairs2",
+      "label": "Block C Floor 0 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 68,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f0_corridor",
+      "label": "Block C Floor 0 \u2014 Central Walkway",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_bridge_d",
+      "label": "Block C Floor 0 \u2014 Passage to Block D",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 4,
+        "y": 85
+      }
+    },
+    {
+      "id": "c_f0_r01",
+      "label": "C-001 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r02",
+      "label": "C-002 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r03",
+      "label": "C-003 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r04",
+      "label": "C-004 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r05",
+      "label": "C-005 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r06",
+      "label": "C-006 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r07",
+      "label": "C-007 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r08",
+      "label": "C-008 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r09",
+      "label": "C-009 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r10",
+      "label": "C-010 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r11",
+      "label": "C-011 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r12",
+      "label": "C-012 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r13",
+      "label": "C-013 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r14",
+      "label": "C-014 (Block C Floor 0)",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_stairs1",
+      "label": "Block C Floor 1 \u2014 Stairs 1 (North-West)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 28,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f1_stairs2",
+      "label": "Block C Floor 1 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 68,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f1_corridor",
+      "label": "Block C Floor 1 \u2014 Central Walkway",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_boy_toilet",
+      "label": "Block C Floor 1 \u2014 C-110 (Boy's Restroom)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 60
+      }
+    },
+    {
+      "id": "c_f1_girl_toilet",
+      "label": "Block C Floor 1 \u2014 C-111 (Girl's Restroom)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 35
+      }
+    },
+    {
+      "id": "c_f1_bridge_d",
+      "label": "Block C Floor 1 \u2014 Passage to Block D",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 4,
+        "y": 85
+      }
+    },
+    {
+      "id": "c_f1_r01",
+      "label": "C-101 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r02",
+      "label": "C-102 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r03",
+      "label": "C-103 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r04",
+      "label": "C-104 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r05",
+      "label": "C-105 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r06",
+      "label": "C-106 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r07",
+      "label": "C-107 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r08",
+      "label": "C-108 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r09",
+      "label": "C-109 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r12",
+      "label": "C-112 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r13",
+      "label": "C-113 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r14",
+      "label": "C-114 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r15",
+      "label": "C-115 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r16",
+      "label": "C-116 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r17",
+      "label": "C-117 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r18",
+      "label": "C-118 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r19",
+      "label": "C-119 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r20",
+      "label": "C-120 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r21",
+      "label": "C-121 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f1_r22",
+      "label": "C-122 (Block C Floor 1)",
+      "building_id": "block_c",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_stairs1",
+      "label": "Block C Floor 2 \u2014 Stairs 1 (North-West)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 28,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f2_stairs2",
+      "label": "Block C Floor 2 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 68,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f2_corridor",
+      "label": "Block C Floor 2 \u2014 Central Walkway",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_boy_toilet",
+      "label": "Block C Floor 2 \u2014 C-210 (Boy's Restroom)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 60
+      }
+    },
+    {
+      "id": "c_f2_girl_toilet",
+      "label": "Block C Floor 2 \u2014 C-211 (Girl's Restroom)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "restroom",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 35
+      }
+    },
+    {
+      "id": "c_f2_r01",
+      "label": "C-201 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r02",
+      "label": "C-202 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r03",
+      "label": "C-203 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r04",
+      "label": "C-204 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r05",
+      "label": "C-205 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r06",
+      "label": "C-206 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r07",
+      "label": "C-207 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r08",
+      "label": "C-208 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r09",
+      "label": "C-209 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r12",
+      "label": "C-212 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r13",
+      "label": "C-213 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r14",
+      "label": "C-214 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r15",
+      "label": "C-215 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r16",
+      "label": "C-216 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r17",
+      "label": "C-217 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r18",
+      "label": "C-218 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r19",
+      "label": "C-219 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r20",
+      "label": "C-220 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r21",
+      "label": "C-221 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f2_r22",
+      "label": "C-222 (Block C Floor 2)",
+      "building_id": "block_c",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_stairs1",
+      "label": "Block D Floor 0 \u2014 Stairs 1 (South-East)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 86,
+        "y": 88
+      }
+    },
+    {
+      "id": "d_f0_stairs2",
+      "label": "Block D Floor 0 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 95,
+        "y": 28
+      }
+    },
+    {
+      "id": "d_f0_corridor",
+      "label": "Block D Floor 0 \u2014 Lawn Perimeter Walkway",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_bridge_e",
+      "label": "Block D Floor 0 \u2014 Bridge to Block E",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 22
+      }
+    },
+    {
+      "id": "d_f0_bridge_c",
+      "label": "Block D Floor 0 \u2014 Passage to Block C",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 92
+      }
+    },
+    {
+      "id": "d_f0_r01",
+      "label": "D-001 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r02",
+      "label": "D-002 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r03",
+      "label": "D-003 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r04",
+      "label": "D-004 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r05",
+      "label": "D-005 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r06",
+      "label": "D-006 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r07",
+      "label": "D-007 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r08",
+      "label": "D-008 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r09",
+      "label": "D-009 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r10",
+      "label": "D-010 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r11",
+      "label": "D-011 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r12",
+      "label": "D-012 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r13",
+      "label": "D-013 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r14",
+      "label": "D-014 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r15",
+      "label": "D-015 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r16",
+      "label": "D-016 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r17",
+      "label": "D-017 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r18",
+      "label": "D-018 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r19",
+      "label": "D-019 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f0_r20",
+      "label": "D-020 (Block D Floor 0)",
+      "building_id": "block_d",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_stairs1",
+      "label": "Block D Floor 1 \u2014 Stairs 1 (South-East)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 86,
+        "y": 88
+      }
+    },
+    {
+      "id": "d_f1_stairs2",
+      "label": "Block D Floor 1 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 95,
+        "y": 28
+      }
+    },
+    {
+      "id": "d_f1_corridor",
+      "label": "Block D Floor 1 \u2014 Lawn Perimeter Walkway",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_bridge_e",
+      "label": "Block D Floor 1 \u2014 Bridge to Block E",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 22
+      }
+    },
+    {
+      "id": "d_f1_bridge_c",
+      "label": "Block D Floor 1 \u2014 Passage to Block C",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 92
+      }
+    },
+    {
+      "id": "d_f1_r01",
+      "label": "D-101 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r02",
+      "label": "D-102 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r03",
+      "label": "D-103 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r04",
+      "label": "D-104 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r05",
+      "label": "D-105 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r06",
+      "label": "D-106 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r07",
+      "label": "D-107 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r08",
+      "label": "D-108 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r09",
+      "label": "D-109 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r10",
+      "label": "D-110 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r11",
+      "label": "D-111 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r12",
+      "label": "D-112 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r13",
+      "label": "D-113 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r14",
+      "label": "D-114 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r15",
+      "label": "D-115 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r16",
+      "label": "D-116 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r17",
+      "label": "D-117 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r18",
+      "label": "D-118 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r19",
+      "label": "D-119 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f1_r20",
+      "label": "D-120 (Block D Floor 1)",
+      "building_id": "block_d",
+      "floor": 1,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_stairs1",
+      "label": "Block D Floor 2 \u2014 Stairs 1 (South-East)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 86,
+        "y": 88
+      }
+    },
+    {
+      "id": "d_f2_stairs2",
+      "label": "Block D Floor 2 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 95,
+        "y": 28
+      }
+    },
+    {
+      "id": "d_f2_corridor",
+      "label": "Block D Floor 2 \u2014 Lawn Perimeter Walkway",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_bridge_e",
+      "label": "Block D Floor 2 \u2014 Bridge to Block E",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "bridge",
+      "accessible": true,
+      "coords": {
+        "x": 5,
+        "y": 22
+      }
+    },
+    {
+      "id": "d_f2_r01",
+      "label": "D-201 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r02",
+      "label": "D-202 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r03",
+      "label": "D-203 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r04",
+      "label": "D-204 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r05",
+      "label": "D-205 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r06",
+      "label": "D-206 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r07",
+      "label": "D-207 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r08",
+      "label": "D-208 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r09",
+      "label": "D-209 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r10",
+      "label": "D-210 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r11",
+      "label": "D-211 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r12",
+      "label": "D-212 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r13",
+      "label": "D-213 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r14",
+      "label": "D-214 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r15",
+      "label": "D-215 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r16",
+      "label": "D-216 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r17",
+      "label": "D-217 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r18",
+      "label": "D-218 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r19",
+      "label": "D-219 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f2_r20",
+      "label": "D-220 (Block D Floor 2)",
+      "building_id": "block_d",
+      "floor": 2,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_stairs1",
+      "label": "Block D Floor 3 \u2014 Stairs 1 (South-East)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 86,
+        "y": 88
+      }
+    },
+    {
+      "id": "d_f3_stairs2",
+      "label": "Block D Floor 3 \u2014 Stairs 2 (North-East)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 95,
+        "y": 28
+      }
+    },
+    {
+      "id": "d_f3_corridor",
+      "label": "Block D Floor 3 \u2014 Lawn Perimeter Walkway",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r01",
+      "label": "D-301 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r02",
+      "label": "D-302 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r03",
+      "label": "D-303 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r04",
+      "label": "D-304 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r05",
+      "label": "D-305 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r06",
+      "label": "D-306 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r07",
+      "label": "D-307 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r08",
+      "label": "D-308 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r09",
+      "label": "D-309 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r10",
+      "label": "D-310 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r11",
+      "label": "D-311 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r12",
+      "label": "D-312 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r13",
+      "label": "D-313 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r14",
+      "label": "D-314 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r15",
+      "label": "D-315 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r16",
+      "label": "D-316 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r17",
+      "label": "D-317 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r18",
+      "label": "D-318 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r19",
+      "label": "D-319 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "d_f3_r20",
+      "label": "D-320 (Block D Floor 3)",
+      "building_id": "block_d",
+      "floor": 3,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": "c_f0_r_c001",
+      "label": "C-001",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 79,
+        "y": 10
+      }
+    },
+    {
+      "id": "c_f0_r_c002",
+      "label": "C-002",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 86,
+        "y": 10
+      }
+    },
+    {
+      "id": "c_f0_r_c003",
+      "label": "C-003",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 94,
+        "y": 10
+      }
+    },
+    {
+      "id": "c_f0_r_c004",
+      "label": "C-004",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 94,
+        "y": 38
+      }
+    },
+    {
+      "id": "c_f0_r_c005",
+      "label": "C-005",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 94,
+        "y": 62
+      }
+    },
+    {
+      "id": "c_f0_r_c006",
+      "label": "C-006",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "id": "c_f0_r_c007",
+      "label": "C-007",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 75,
+        "y": 90
+      }
+    },
+    {
+      "id": "c_f0_r_c008",
+      "label": "C-008",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 26,
+        "y": 90
+      }
+    },
+    {
+      "id": "c_f0_r_c009",
+      "label": "C-009",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 14,
+        "y": 90
+      }
+    },
+    {
+      "id": "c_f0_r_c010",
+      "label": "C-010",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 4,
+        "y": 57
+      }
+    },
+    {
+      "id": "c_f0_r_c011",
+      "label": "C-011",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 4,
+        "y": 36
+      }
+    },
+    {
+      "id": "c_f0_r_c012",
+      "label": "C-012",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 4,
+        "y": 10
+      }
+    },
+    {
+      "id": "c_f0_r_c013",
+      "label": "C-013",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 10,
+        "y": 10
+      }
+    },
+    {
+      "id": "c_f0_r_c014",
+      "label": "C-014",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "room",
+      "accessible": true,
+      "coords": {
+        "x": 17,
+        "y": 10
+      }
+    },
+    {
+      "id": "c_f0_stairs_1",
+      "label": "Stairs-1",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 28,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f0_stairs_2",
+      "label": "Stairs-2",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "stairs",
+      "accessible": false,
+      "coords": {
+        "x": 68,
+        "y": 8
+      }
+    },
+    {
+      "id": "c_f0_ent_football",
+      "label": "Football Ground Front Entrance",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 49,
+        "y": 9
+      }
+    },
+    {
+      "id": "c_f0_ent_sc_block",
+      "label": "SC Block Side Entrance",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 49,
+        "y": 90
+      }
+    },
+    {
+      "id": "c_f0_ent_block_d",
+      "label": "To Block D",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "entrance",
+      "accessible": true,
+      "coords": {
+        "x": 3,
+        "y": 85
+      }
+    },
+    {
+      "id": "c_f0_corridor_main",
+      "label": "Main Corridor Atrium Ring",
+      "building_id": "block_c",
+      "floor": 0,
+      "type": "corridor",
+      "accessible": true,
+      "coords": {
+        "x": 50,
+        "y": 50
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "main_entrance",
+      "to": "parking_area",
+      "distance": 1,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "main_entrance",
+      "to": "block_a_entrance",
+      "distance": 66,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_a_entrance",
+      "to": "block_b_entrance",
+      "distance": 89,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_b_entrance",
+      "to": "roundabout",
+      "distance": 94,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "roundabout",
+      "to": "block_c_football_entrance",
+      "distance": 79,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "roundabout",
+      "to": "block_c_sc_entrance",
+      "distance": 65,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "roundabout",
+      "to": "block_d_entrance",
+      "distance": 63,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "roundabout",
+      "to": "block_e_main_entrance",
+      "distance": 115,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_c_football_entrance",
+      "to": "football_ground",
+      "distance": 25,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_c_sc_entrance",
+      "to": "sc_block_entrance",
+      "distance": 35,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_d_entrance",
+      "to": "block_e_main_entrance",
+      "distance": 54,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_e_main_entrance",
+      "to": "block_f_entrance",
+      "distance": 67,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_f_entrance",
+      "to": "iter_cafeteria",
+      "distance": 73,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "main_entrance",
+      "to": "cricket_ground",
+      "distance": 110,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "roundabout",
+      "to": "library_entrance",
+      "distance": 55,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "roundabout",
+      "to": "auditorium_entrance",
+      "distance": 120,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "block_a_entrance",
+      "to": "ds_block_entrance",
+      "distance": 45,
+      "type": "pathway",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_west_corridor",
+      "to": "e_f0_north_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_north_corridor",
+      "to": "e_f0_east_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_east_corridor",
+      "to": "e_f0_south_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_south_corridor",
+      "to": "e_f0_west_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift1",
+      "to": "e_f0_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift2",
+      "to": "e_f0_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_stairs",
+      "to": "e_f0_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_girl_toilet",
+      "to": "e_f0_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_boy_toilet",
+      "to": "e_f0_north_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift3",
+      "to": "e_f0_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift4",
+      "to": "e_f0_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "block_e_main_entrance",
+      "to": "e_f0_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "block_e_main_entrance",
+      "to": "e_f0_lift1",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_west_corridor",
+      "to": "e_f0_bridge_d",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r01",
+      "to": "e_f0_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r02",
+      "to": "e_f0_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r03",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r04",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r05",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r06",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r07",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r08",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r09",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r10",
+      "to": "e_f0_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r11",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r12",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r13",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r14",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r15",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r16",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r17",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r18",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_r19",
+      "to": "e_f0_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_west_corridor",
+      "to": "e_f1_north_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_north_corridor",
+      "to": "e_f1_east_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_east_corridor",
+      "to": "e_f1_south_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_south_corridor",
+      "to": "e_f1_west_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift1",
+      "to": "e_f1_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift2",
+      "to": "e_f1_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_stairs",
+      "to": "e_f1_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_girl_toilet",
+      "to": "e_f1_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_boy_toilet",
+      "to": "e_f1_north_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift3",
+      "to": "e_f1_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift4",
+      "to": "e_f1_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "block_e_f1_entrance",
+      "to": "e_f1_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": false
+    },
+    {
+      "from": "e_f1_west_corridor",
+      "to": "e_f1_bridge_d",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r01",
+      "to": "e_f1_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r02",
+      "to": "e_f1_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r03",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r04",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r05",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r06",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r07",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r08",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r09",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r10",
+      "to": "e_f1_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r11",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r12",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r13",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r14",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r15",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r16",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r17",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r18",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_r19",
+      "to": "e_f1_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_west_corridor",
+      "to": "e_f2_north_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_north_corridor",
+      "to": "e_f2_east_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_east_corridor",
+      "to": "e_f2_south_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_south_corridor",
+      "to": "e_f2_west_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift1",
+      "to": "e_f2_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift2",
+      "to": "e_f2_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_stairs",
+      "to": "e_f2_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_girl_toilet",
+      "to": "e_f2_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_boy_toilet",
+      "to": "e_f2_north_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift3",
+      "to": "e_f2_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift4",
+      "to": "e_f2_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_west_corridor",
+      "to": "e_f2_bridge_d",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r01",
+      "to": "e_f2_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r02",
+      "to": "e_f2_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r03",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r04",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r05",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r06",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r07",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r08",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r09",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r10",
+      "to": "e_f2_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r11",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r12",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r13",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r14",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r15",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r16",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r17",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r18",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_r19",
+      "to": "e_f2_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_west_corridor",
+      "to": "e_f3_north_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_north_corridor",
+      "to": "e_f3_east_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_east_corridor",
+      "to": "e_f3_south_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_south_corridor",
+      "to": "e_f3_west_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift1",
+      "to": "e_f3_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift2",
+      "to": "e_f3_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_stairs",
+      "to": "e_f3_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_girl_toilet",
+      "to": "e_f3_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_boy_toilet",
+      "to": "e_f3_north_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift3",
+      "to": "e_f3_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift4",
+      "to": "e_f3_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r01",
+      "to": "e_f3_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r02",
+      "to": "e_f3_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r03",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r04",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r05",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r06",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r07",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r08",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r09",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r10",
+      "to": "e_f3_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r11",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r12",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r13",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r14",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r15",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r16",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r17",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r18",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_r19",
+      "to": "e_f3_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_west_corridor",
+      "to": "e_f4_north_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_north_corridor",
+      "to": "e_f4_east_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_east_corridor",
+      "to": "e_f4_south_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_south_corridor",
+      "to": "e_f4_west_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift1",
+      "to": "e_f4_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift2",
+      "to": "e_f4_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_stairs",
+      "to": "e_f4_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_girl_toilet",
+      "to": "e_f4_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_boy_toilet",
+      "to": "e_f4_north_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift3",
+      "to": "e_f4_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift4",
+      "to": "e_f4_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r01",
+      "to": "e_f4_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r02",
+      "to": "e_f4_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r03",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r04",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r05",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r06",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r07",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r08",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r09",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r10",
+      "to": "e_f4_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r11",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r12",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r13",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r14",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r15",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r16",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r17",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r18",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_r19",
+      "to": "e_f4_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_west_corridor",
+      "to": "e_f5_north_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_north_corridor",
+      "to": "e_f5_east_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_east_corridor",
+      "to": "e_f5_south_corridor",
+      "distance": 18,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_south_corridor",
+      "to": "e_f5_west_corridor",
+      "distance": 22,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_lift1",
+      "to": "e_f5_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_lift2",
+      "to": "e_f5_west_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_stairs",
+      "to": "e_f5_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_girl_toilet",
+      "to": "e_f5_west_corridor",
+      "distance": 5,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_boy_toilet",
+      "to": "e_f5_north_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_lift3",
+      "to": "e_f5_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_lift4",
+      "to": "e_f5_east_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r01",
+      "to": "e_f5_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r02",
+      "to": "e_f5_west_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r03",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r04",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r05",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r06",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r07",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r08",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r09",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r10",
+      "to": "e_f5_north_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r11",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r12",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r13",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r14",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r15",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r16",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r17",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r18",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f5_r19",
+      "to": "e_f5_south_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift1",
+      "to": "e_f1_lift1",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift2",
+      "to": "e_f1_lift2",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift3",
+      "to": "e_f1_lift3",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_lift4",
+      "to": "e_f1_lift4",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f0_stairs",
+      "to": "e_f1_stairs",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "e_f1_lift1",
+      "to": "e_f2_lift1",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift2",
+      "to": "e_f2_lift2",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift3",
+      "to": "e_f2_lift3",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_lift4",
+      "to": "e_f2_lift4",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f1_stairs",
+      "to": "e_f2_stairs",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "e_f2_lift1",
+      "to": "e_f3_lift1",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift2",
+      "to": "e_f3_lift2",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift3",
+      "to": "e_f3_lift3",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_lift4",
+      "to": "e_f3_lift4",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f2_stairs",
+      "to": "e_f3_stairs",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "e_f3_lift1",
+      "to": "e_f4_lift1",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift2",
+      "to": "e_f4_lift2",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift3",
+      "to": "e_f4_lift3",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_lift4",
+      "to": "e_f4_lift4",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f3_stairs",
+      "to": "e_f4_stairs",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "e_f4_lift1",
+      "to": "e_f5_lift1",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift2",
+      "to": "e_f5_lift2",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift3",
+      "to": "e_f5_lift3",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_lift4",
+      "to": "e_f5_lift4",
+      "distance": 4,
+      "type": "elevator",
+      "accessible": true
+    },
+    {
+      "from": "e_f4_stairs",
+      "to": "e_f5_stairs",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f0_stairs1",
+      "to": "c_f0_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_stairs2",
+      "to": "c_f0_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "block_c_football_entrance",
+      "to": "c_f0_corridor",
+      "distance": 10,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "block_c_sc_entrance",
+      "to": "c_f0_corridor",
+      "distance": 10,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_corridor",
+      "to": "c_f0_bridge_d",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r01",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r02",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r03",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r04",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r05",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r06",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r07",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r08",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r09",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r10",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r11",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r12",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r13",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r14",
+      "to": "c_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_stairs1",
+      "to": "c_f1_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_stairs2",
+      "to": "c_f1_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_boy_toilet",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_girl_toilet",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_corridor",
+      "to": "c_f1_bridge_d",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r01",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r02",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r03",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r04",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r05",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r06",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r07",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r08",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r09",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r12",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r13",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r14",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r15",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r16",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r17",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r18",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r19",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r20",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r21",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_r22",
+      "to": "c_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_stairs1",
+      "to": "c_f2_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_stairs2",
+      "to": "c_f2_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_boy_toilet",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_girl_toilet",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r01",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r02",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r03",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r04",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r05",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r06",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r07",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r08",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r09",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r12",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r13",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r14",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r15",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r16",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r17",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r18",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r19",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r20",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r21",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f2_r22",
+      "to": "c_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_stairs1",
+      "to": "c_f1_stairs1",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f0_stairs2",
+      "to": "c_f1_stairs2",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f1_stairs1",
+      "to": "c_f2_stairs1",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f1_stairs2",
+      "to": "c_f2_stairs2",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "d_f0_stairs1",
+      "to": "d_f0_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_stairs2",
+      "to": "d_f0_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "block_d_entrance",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_corridor",
+      "to": "d_f0_bridge_e",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_corridor",
+      "to": "d_f0_bridge_c",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r01",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r02",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r03",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r04",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r05",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r06",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r07",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r08",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r09",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r10",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r11",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r12",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r13",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r14",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r15",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r16",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r17",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r18",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r19",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_r20",
+      "to": "d_f0_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_stairs1",
+      "to": "d_f1_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_stairs2",
+      "to": "d_f1_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_corridor",
+      "to": "d_f1_bridge_e",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_corridor",
+      "to": "d_f1_bridge_c",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r01",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r02",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r03",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r04",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r05",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r06",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r07",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r08",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r09",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r10",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r11",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r12",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r13",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r14",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r15",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r16",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r17",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r18",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r19",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_r20",
+      "to": "d_f1_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_stairs1",
+      "to": "d_f2_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_stairs2",
+      "to": "d_f2_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_corridor",
+      "to": "d_f2_bridge_e",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r01",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r02",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r03",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r04",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r05",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r06",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r07",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r08",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r09",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r10",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r11",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r12",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r13",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r14",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r15",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r16",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r17",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r18",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r19",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_r20",
+      "to": "d_f2_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_stairs1",
+      "to": "d_f3_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_stairs2",
+      "to": "d_f3_corridor",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r01",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r02",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r03",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r04",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r05",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r06",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r07",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r08",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r09",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r10",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r11",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r12",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r13",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r14",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r15",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r16",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r17",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r18",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r19",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f3_r20",
+      "to": "d_f3_corridor",
+      "distance": 8,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_stairs1",
+      "to": "d_f1_stairs1",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "d_f0_stairs2",
+      "to": "d_f1_stairs2",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "d_f1_stairs1",
+      "to": "d_f2_stairs1",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "d_f1_stairs2",
+      "to": "d_f2_stairs2",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "d_f2_stairs1",
+      "to": "d_f3_stairs1",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "d_f2_stairs2",
+      "to": "d_f3_stairs2",
+      "distance": 12,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f0_bridge_d",
+      "to": "d_f0_bridge_c",
+      "distance": 15,
+      "type": "bridge",
+      "accessible": true
+    },
+    {
+      "from": "c_f1_bridge_d",
+      "to": "d_f1_bridge_c",
+      "distance": 15,
+      "type": "bridge",
+      "accessible": true
+    },
+    {
+      "from": "d_f0_bridge_e",
+      "to": "e_f0_bridge_d",
+      "distance": 18,
+      "type": "bridge",
+      "accessible": true
+    },
+    {
+      "from": "d_f1_bridge_e",
+      "to": "e_f1_bridge_d",
+      "distance": 18,
+      "type": "bridge",
+      "accessible": true
+    },
+    {
+      "from": "d_f2_bridge_e",
+      "to": "e_f2_bridge_d",
+      "distance": 18,
+      "type": "bridge",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c001",
+      "to": "c_f0_corridor_main",
+      "distance": 10,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c002",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c003",
+      "to": "c_f0_corridor_main",
+      "distance": 15,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c004",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c005",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c006",
+      "to": "c_f0_corridor_main",
+      "distance": 15,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c007",
+      "to": "c_f0_corridor_main",
+      "distance": 10,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c008",
+      "to": "c_f0_corridor_main",
+      "distance": 10,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c009",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c010",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c011",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c012",
+      "to": "c_f0_corridor_main",
+      "distance": 15,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c013",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_r_c014",
+      "to": "c_f0_corridor_main",
+      "distance": 10,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_stairs_1",
+      "to": "c_f0_corridor_main",
+      "distance": 8,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f0_stairs_2",
+      "to": "c_f0_corridor_main",
+      "distance": 8,
+      "type": "stairs",
+      "accessible": false
+    },
+    {
+      "from": "c_f0_ent_football",
+      "to": "c_f0_corridor_main",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_ent_sc_block",
+      "to": "c_f0_corridor_main",
+      "distance": 6,
+      "type": "corridor",
+      "accessible": true
+    },
+    {
+      "from": "c_f0_ent_block_d",
+      "to": "c_f0_corridor_main",
+      "distance": 12,
+      "type": "corridor",
+      "accessible": true
+    }
+  ]
+}
