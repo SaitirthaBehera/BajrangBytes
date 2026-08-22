@@ -37,15 +37,15 @@ In India, millions of citizens with physical or visual impairments struggle to n
 
 ## 📸 Application Screenshots
 
-*(Replace these placeholders with your actual screenshots before submission!)*
 
 | Interactive Digital Twin Map | Turn-by-Turn Voice Navigation |
 | :---: | :---: |
-| <img src="https://via.placeholder.com/400x250.png?text=Interactive+SVG+Map+Screenshot" alt="Dashboard" /> | <img src="https://via.placeholder.com/400x250.png?text=Voice+Navigation+Screenshot" alt="Map" /> |
+| <img width="1919" height="1079" alt="Dashboard" src="https://github.com/user-attachments/assets/63dd14c9-7088-4e3f-ba74-6503c9ea8d58" />
+ | <img width="1918" height="1079" alt="Turn-by-Turn voice nav" src="https://github.com/user-attachments/assets/268a0c86-8ec7-40df-adaa-968482f6cc4a" /> |
 
 | TwinGram Social Feed | AI Barrier Detection |
 | :---: | :---: |
-| <img src="https://via.placeholder.com/400x250.png?text=TwinGram+Feed+Screenshot" alt="TwinGram" /> | <img src="https://via.placeholder.com/400x250.png?text=Gemini+AI+Detection" alt="AI Detect" /> |
+|<img width="1919" height="1079" alt="TwinGram Feed" src="https://github.com/user-attachments/assets/41c2be88-46f5-43ad-b09b-4913dec15053" /> | <img width="1919" height="1079" alt="AI Detection" src="https://github.com/user-attachments/assets/66bc54a9-4781-4d2a-9fe7-43964c4aeae0" />|
 
 ---
 
