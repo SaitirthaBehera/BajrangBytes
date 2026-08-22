@@ -274,10 +274,7 @@ class AccessibilityRouter:
         start_label = self.nodes_data.get(path[0], {}).get("label", path[0].replace("_", " ").title())
         dest_label = dest_node.get("label", path[-1].replace("_", " ").title())
         
-        voice_script = f"Navigating from {start_label} to {dest_label} using {route_type_label}. Total distance is {total_distance} meters, estimated travel time is {est_minutes} minute{'s' if est_minutes > 1 else ''}. "
-        for idx, step_text in enumerate(steps[:-1]):
-            voice_script += f"Step {idx + 1}: {step_text} "
-        voice_script += f"Finally, you will arrive at your destination, {dest_label}."
+        voice_script = self._generate_natural_voice_script(path, start_label, dest_label, total_distance, est_minutes)
 
         return {
             "status": "success",
@@ -295,6 +292,116 @@ class AccessibilityRouter:
             "warnings": warnings,
             "route_type_label": route_type_label
         }
+
+    def _generate_natural_voice_script(self, path: List[str], start_label: str, end_label: str, total_dist: int, est_mins: int) -> str:
+        raw_actions = []
+        i = 0
+        while i < len(path) - 1:
+            curr_id = path[i]
+            next_id = path[i+1]
+            
+            # Elevator
+            if "lift" in curr_id.lower():
+                j = i + 1
+                while j < len(path) and "lift" in path[j].lower():
+                    j += 1
+                dest_node = self.nodes_data.get(path[j-1], {})
+                dest_floor = dest_node.get("floor", 0)
+                curr_floor = self.nodes_data.get(curr_id, {}).get("floor", 0)
+                floor_str = f"Floor {dest_floor}" if dest_floor > 0 else "the Ground Floor"
+                lift_name = "Lift 1" if "lift1" in curr_id else "Lift 2" if "lift2" in curr_id else "the elevator"
+                if dest_floor < curr_floor:
+                    raw_actions.append(("action", f"take {lift_name} down to {floor_str}"))
+                elif dest_floor > curr_floor:
+                    raw_actions.append(("action", f"take {lift_name} up to {floor_str}"))
+                else:
+                    raw_actions.append(("action", f"take {lift_name} to {floor_str}"))
+                i = j - 1
+                i += 1
+                continue
+                
+            # Stairs
+            if "stairs" in curr_id.lower():
+                j = i + 1
+                while j < len(path) and "stairs" in path[j].lower():
+                    j += 1
+                dest_node = self.nodes_data.get(path[j-1], {})
+                dest_floor = dest_node.get("floor", 0)
+                curr_floor = self.nodes_data.get(curr_id, {}).get("floor", 0)
+                floor_str = f"Floor {dest_floor}" if dest_floor > 0 else "the Ground Floor"
+                if dest_floor < curr_floor:
+                    raw_actions.append(("action", f"take the stairs down to {floor_str}"))
+                elif dest_floor > curr_floor:
+                    raw_actions.append(("action", f"take the stairs up to {floor_str}"))
+                else:
+                    raw_actions.append(("action", f"take the stairs to {floor_str}"))
+                i = j - 1
+                i += 1
+                continue
+
+            # Bridge
+            if "bridge" in curr_id.lower():
+                dest_node = self.nodes_data.get(next_id, {})
+                bldg = dest_node.get("building_id", "")
+                bldg_name = bldg.replace("block_", "Block ").title()
+                if bldg and bldg != self.nodes_data.get(curr_id, {}).get("building_id", ""):
+                    raw_actions.append(("action", f"cross the connecting skybridge into {bldg_name}"))
+                else:
+                    raw_actions.append(("action", "cross the connecting skybridge"))
+                i += 1
+                continue
+
+            # Landmarks
+            if i > 0 and i < len(path) - 1:
+                curr_lbl = self.nodes_data.get(curr_id, {}).get("label", "").split("(")[0].strip()
+                if "roundabout" in curr_id.lower():
+                    raw_actions.append(("action", "continue through the Central Campus Roundabout"))
+                elif any(curr_id.startswith(k) for k in ["block_a", "block_b", "block_c", "block_d", "block_e"]):
+                    clean_name = curr_lbl.replace(" Entrance", "").replace(" Gate", "").strip()
+                    if clean_name:
+                        raw_actions.append(("landmark", clean_name))
+            i += 1
+        
+        final_phrases = []
+        current_landmarks = []
+        
+        def flush_landmarks():
+            nonlocal current_landmarks
+            if not current_landmarks:
+                return
+            seen = []
+            for lm in current_landmarks:
+                if lm not in seen:
+                    seen.append(lm)
+            if len(seen) == 1:
+                final_phrases.append("proceed past " + seen[0])
+            elif len(seen) == 2:
+                final_phrases.append("proceed past " + seen[0] + " and " + seen[1])
+            else:
+                final_phrases.append("proceed past " + ", ".join(seen[:-1]) + ", and " + seen[-1])
+            current_landmarks = []
+
+        for kind, val in raw_actions:
+            if kind == "landmark":
+                current_landmarks.append(val)
+            else:
+                flush_landmarks()
+                final_phrases.append(val)
+        flush_landmarks()
+
+        cleaned_phrases = []
+        for p in final_phrases:
+            if not cleaned_phrases or cleaned_phrases[-1] != p:
+                cleaned_phrases.append(p)
+
+        if not cleaned_phrases:
+            route_sentence = f"Start from {start_label} and proceed along the main accessible pathway directly to {end_label}."
+        else:
+            route_sentence = f"Start from {start_label}, " + ", ".join(cleaned_phrases) + f", and arrive at {end_label}."
+
+        dist_sentence = f"Total distance is {total_dist} meters, taking approximately {est_mins} minute" + ("s" if est_mins > 1 else "") + "."
+        
+        return f"{route_sentence} {dist_sentence}"
 
 # Singleton instance
 router_engine = AccessibilityRouter()

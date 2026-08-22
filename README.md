@@ -70,6 +70,11 @@ In India, millions of citizens with physical or visual impairments struggle to n
 
 This project uses `concurrently` to run both the React frontend and the FastAPI backend side-by-side perfectly.
 
+### 📋 Prerequisites
+Before you begin, ensure you have the following installed on your system:
+* **Node.js (v18 or higher)** - [Download Node.js Here](https://nodejs.org/)
+* **Python 3.11.x** - [Download Python 3.11.9 Here](https://www.python.org/downloads/release/python-3119/)
+
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/sujitnayak-web/BajrangBytes.git
@@ -80,6 +85,12 @@ cd BajrangBytes
 ```bash
 npm install
 cd navigation-backend
+
+# Create and activate a Virtual Environment using Python 3.11
+py -3.11 -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# Install backend dependencies
 pip install -r requirements.txt
 cd ..
 ```
