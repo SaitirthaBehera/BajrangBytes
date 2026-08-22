@@ -1,0 +1,6 @@
+{
+  "name": "ACCESS TWIN",
+  "description": "Crowdsourced Accessibility Digital Twin for Public Buildings & Services",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
