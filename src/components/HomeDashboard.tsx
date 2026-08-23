@@ -223,9 +223,6 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
                       referrerPolicy="no-referrer"
                     />
                   )}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-extrabold text-blue-700 shadow-md">
-                    {building.overallScore}/100 Score
-                  </div>
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
