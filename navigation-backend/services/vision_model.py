@@ -35,7 +35,7 @@ class AccessibilityDetector:
         self.mock_mode = settings.MOCK_MODE
         self.client = None
         # High-speed vision models
-        self.model_names = ['gemini-3.7-flash','gemini-3.6-flash','gemini-3.1-flash-lite']
+        self.model_names = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3.1-flash-lite']
 
         if not self.mock_mode:
             try:

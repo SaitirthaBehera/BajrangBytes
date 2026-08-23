@@ -96,7 +96,7 @@ export const FloorMapIngestion: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5 mr-1" />
               <span>AI Multimodal Blueprint Ingestion</span>
             </span>
-            <span className="text-xs font-mono text-slate-400">Gemini 3.7 Vision ➔ Supabase</span>
+            <span className="text-xs font-mono text-slate-400">Gemini 3.6 Vision ➔ Supabase</span>
           </div>
           <h3 className="text-xl font-bold text-slate-900 mt-2">
             Automated Floor Plan & Indoor Graph Ingestion

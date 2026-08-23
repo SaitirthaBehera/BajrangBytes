@@ -6,7 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
-
 # Python environment and cache files
 venv/
 __pycache__/
