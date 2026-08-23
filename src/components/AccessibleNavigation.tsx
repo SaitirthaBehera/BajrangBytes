@@ -425,38 +425,10 @@ export const AccessibleNavigation: React.FC<AccessibleNavigationProps> = ({
               {/* Turn-by-Turn Voice Navigation Section */}
               {(() => {
                 let voiceText = activeFastApiRoute.voice_guidance || activeFastApiRoute.voice_navigation;
-                
-                // If it contains robotic "Step 1: Proceed from...", condense into minimal human phrasing
-                if (!voiceText || voiceText.includes('Step 1: Proceed from') || voiceText.length > 250) {
-                  const startClean = getLocationLabel(activeFastApiRoute.start_location).replace(/\(.*?\)/g, '').replace(/Block\s+[A-Z]\s*[-—–]\s*/gi, '').trim();
-                  const endClean = getLocationLabel(activeFastApiRoute.end_location).replace(/\(.*?\)/g, '').replace(/Block\s+[A-Z]\s*[-—–]\s*/gi, '').trim();
-
-                  const conciseSteps: string[] = [];
-                  const rawList = activeFastApiRoute.step_by_step_directions || [];
-                  
-                  for (const s of rawList) {
-                    const lower = s.toLowerCase();
-                    if (lower.includes('elevator') || lower.includes('lift')) {
-                      const matchFloor = s.match(/floor\s+(\d+)/i);
-                      const targetFl = matchFloor ? `Floor ${matchFloor[1]}` : (lower.includes('ground') ? 'Ground Floor' : 'your target floor');
-                      const liftStr = `Take the elevator to ${targetFl}.`;
-                      if (!conciseSteps.includes(liftStr)) conciseSteps.push(liftStr);
-                    } else if (lower.includes('bridge') || lower.includes('passage')) {
-                      const matchB = s.match(/block\s+([a-e])/i);
-                      const bName = matchB ? `Block ${matchB[1].toUpperCase()}` : 'the connecting building';
-                      const bridgeStr = `Cross the bridge to ${bName}.`;
-                      if (!conciseSteps.includes(bridgeStr)) conciseSteps.push(bridgeStr);
-                    } else if (lower.includes('stairs')) {
-                      const stairsStr = `Take the stairs.`;
-                      if (!conciseSteps.includes(stairsStr)) conciseSteps.push(stairsStr);
-                    }
-                  }
-
-                  if (conciseSteps.length > 0) {
-                    voiceText = `Start from ${startClean}. ` + conciseSteps.join(' Then, ') + ` Walk down the corridor to ${endClean}. You have arrived at your destination.`;
-                  } else {
-                    voiceText = `Head from ${startClean} along the main hallway directly to ${endClean}. Total distance: ${activeFastApiRoute.total_distance_meters} meters.`;
-                  }
+                if (!voiceText) {
+                  const startClean = getLocationLabel(activeFastApiRoute.start_location).replace(/\(.*?\)/g, '').replace(/Block\s+[A-Z]\s*[-]\s*/gi, '').trim();
+                  const endClean = getLocationLabel(activeFastApiRoute.end_location).replace(/\(.*?\)/g, '').replace(/Block\s+[A-Z]\s*[-]\s*/gi, '').trim();
+                  voiceText = `Navigating from ${startClean} to ${endClean}.`;
                 }
 
                 return (
