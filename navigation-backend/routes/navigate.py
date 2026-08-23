@@ -148,8 +148,10 @@ async def post_accessible_route(payload: NavigateRequest):
 
 @router.get("/navigate")
 def get_accessible_route(
-    start: CampusNode = Query(CampusNode.MAIN_ENTRANCE, description="Select start location from dropdown"),
-    end: CampusNode = Query(CampusNode.LIBRARY, description="Select destination from dropdown"),
+    start: str = Query("main_entrance", description="Select start location"),
+    end: str = Query("library_entrance", description="Select destination"),
     profile: DisabilityProfile = Query(DisabilityProfile.WHEELCHAIR, description="Select accessibility profile")
 ):
-    return _build_route_response(start.value, end.value, profile.value)
+    start_id = _normalize_node_id(start)
+    end_id = _normalize_node_id(end)
+    return _build_route_response(start_id, end_id, profile.value)
