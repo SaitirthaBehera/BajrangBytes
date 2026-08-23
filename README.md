@@ -12,8 +12,8 @@
 ---
 
 ## 📌 Links & Resources
-* **🎥 Live Demo Video:** [Click here to watch](#) *(Insert YouTube/Drive Link)*
-* **📑 Pitch Deck / Presentation:** [View PPT Here](#) *(Insert Canva/PDF Link)*
+* **🎥 Live Demo Video:** [Click here to watch](https://youtu.be/cX1xIBF4Xcw?si=ZLj8DDvy2Krl5lR5)
+* **📑 Pitch Deck / Presentation:** [View PPT Here](https://github.com/user-attachments/files/31342501/IDEATHON.PPT.pdf)
 
 ---
 
