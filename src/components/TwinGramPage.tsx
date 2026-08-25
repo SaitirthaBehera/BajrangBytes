@@ -235,7 +235,7 @@ export const TwinGramPage: React.FC<TwinGramPageProps> = ({ session, onOpenAuth,
         <p className="text-center text-rose-600">{error}</p>
       ) : (
         <div className="space-y-6">
-          {posts.map(post => (
+          {posts.filter(post => isAdmin || post.verification_status !== 'fake').map(post => (
             <TwinGramPostCard 
               key={post.id} 
               post={post} 
