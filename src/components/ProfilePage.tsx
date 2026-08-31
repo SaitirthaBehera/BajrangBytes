@@ -407,7 +407,41 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, profile, refresh
               <p className="text-center text-slate-500">No posts yet.</p>
             ) : (
               <div className="space-y-6">
-                {posts.map(post => (
+                {posts.map(post => {
+                  const isFake = post.verification_status === 'fake';
+                  
+                  if (isFake) {
+                    return (
+                      <div key={post.id} className="space-y-3">
+                        <div className="bg-rose-50 border border-rose-200 p-4 rounded-xl text-rose-800 text-sm shadow-sm space-y-3">
+                          <p className="font-bold flex items-center gap-2"><AlertCircle className="w-4 h-4" /> Admin marked this post as fake</p>
+                          <p className="text-xs">This post was marked as fake by an admin and is no longer shown in the TwinGram feed.</p>
+                          <p className="text-xs font-medium">This post received a -1 score penalty.</p>
+                          <button 
+                             onClick={() => setSelectedPostForDeletion(post)}
+                             className="bg-rose-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-rose-700 transition-colors cursor-pointer"
+                          >
+                             Delete Post
+                          </button>
+                        </div>
+                        <div className="filter blur-[2px] opacity-70">
+                          <TwinGramPostCard 
+                            post={post} 
+                            onReaction={handleReaction}
+                            processingReaction={processingReaction}
+                            onCommentClick={setSelectedPostForComments}
+                            onShareClick={setSelectedPostForSharing}
+                            onDelete={user?.id === profile?.id ? setSelectedPostForDeletion : undefined}
+                            isAdmin={isAdmin}
+                            onUpdatePostStatus={handleUpdatePostStatus}
+                            processingVerification={processingVerification}
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  return (
                   <TwinGramPostCard 
                     key={post.id} 
                     post={post} 
@@ -420,7 +454,8 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ user, profile, refresh
                     onUpdatePostStatus={handleUpdatePostStatus}
                     processingVerification={processingVerification}
                   />
-                ))}
+                );
+              })}
               </div>
             )}
           </div>
