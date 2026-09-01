@@ -1,4 +1,4 @@
-import { Building, AccessibilityFeature, AccessibilityReport, Recommendation, DisabilityProfile, RouteResult, AiDetectionResult, VerificationStatus, ConfidenceLevel, BuildingFloor, BuildingRoom, FloorMap, FeatureType, FeatureStatus } from '../types';
+import { Building, AccessibilityFeature, AccessibilityReport, Recommendation, DisabilityProfile, RouteResult, AiDetectionResult, VerificationStatus, ConfidenceLevel, BuildingFloor, BuildingRoom, FloorMap, FeatureType, FeatureStatus, CrowdDensityApiResponse } from '../types';
 import { calculateAccessibleRoute } from '../utils/navigation';
 import { supabase, isSupabaseConfigured, signInAdminWithSupabase } from '../lib/supabase';
 import { MOCK_BUILDINGS, MOCK_REPORTS, MOCK_NODES, MOCK_EDGES, MOCK_RECOMMENDATIONS } from '../data/mockData';
@@ -1465,7 +1465,38 @@ export const api = {
     } catch (e) {
       console.warn('analyzeAndGenerateRecommendation failed:', e);
     }
-    
+
+    return null;
+  },
+
+  /**
+   * STEP 3: Live Crowd Density Telemetry API
+   * Queries FastAPI / Node backend for dynamic sensor/simulation values per floor
+   */
+  async getCrowdDensity(floorId: string | number, buildingId?: string): Promise<CrowdDensityApiResponse | null> {
+    try {
+      let formattedKey = String(floorId).trim().toUpperCase();
+      if (!formattedKey.includes('-F')) {
+        let bPrefix = 'C';
+        if (buildingId) {
+          const bUpper = buildingId.toUpperCase();
+          if (bUpper.includes('D')) bPrefix = 'D';
+          else if (bUpper.includes('E')) bPrefix = 'E';
+        }
+        const digit = formattedKey.replace(/\D/g, '') || '0';
+        formattedKey = `${bPrefix}-F${digit}`;
+      }
+
+      const res = await fetch(`/api/crowd-density/${encodeURIComponent(formattedKey)}`, {
+        signal: AbortSignal.timeout(3000)
+      });
+      if (res.ok) {
+        const data: CrowdDensityApiResponse = await res.json();
+        return data;
+      }
+    } catch (err) {
+      console.warn('[CrowdDensity API] Notice fetching telemetry:', err);
+    }
     return null;
   }
 };
