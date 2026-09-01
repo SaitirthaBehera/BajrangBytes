@@ -1085,6 +1085,184 @@ Return ONLY a valid JSON object matching this schema.`;
     });
   });
 
+  // Crowd Density Telemetry API (Proxies to FastAPI backend or generates smooth mock stream)
+  app.get(['/api/crowd-density/:floorId', '/crowd-density/:floorId'], async (req, res) => {
+    const rawFloorId = req.params.floorId || 'C-F0';
+
+    // 1. Try fetching from active FastAPI backend service
+    try {
+      const fastApiRes = await fetch(`http://127.0.0.1:${FASTAPI_PORT}/api/crowd-density/${encodeURIComponent(rawFloorId)}`, {
+        signal: AbortSignal.timeout(1800)
+      });
+      if (fastApiRes.ok) {
+        const data = await fastApiRes.json();
+        return res.json(data);
+      }
+    } catch {
+      // FastAPI offline or starting up, fall through to native smooth generator
+    }
+
+    // 2. Native Stream with Real YOLO Telemetry check (cam01_telemetry.json)
+    const upper = rawFloorId.toUpperCase();
+    let block = 'C';
+    if (upper.includes('D')) block = 'D';
+    else if (upper.includes('E')) block = 'E';
+    
+    const floorDigits = upper.replace(/\D/g, '');
+    const floorNum = floorDigits ? floorDigits[0] : '0';
+    const normalizedKey = `${block}-F${floorNum}`;
+
+    // STEP 2C: Check if real YOLO video telemetry exists for Academic Block E Main Entrance (Floor E-F0)
+    if (normalizedKey === 'E-F0') {
+      try {
+        const telemetryPath = path.join(process.cwd(), 'navigation-backend', 'data', 'cam01_telemetry.json');
+        if (fs.existsSync(telemetryPath)) {
+          const raw = fs.readFileSync(telemetryPath, 'utf-8');
+          const telemetryData = JSON.parse(raw);
+          const frames = telemetryData.frames || [];
+          const lastFrame = frames.length > 0 ? frames[frames.length - 1] : null;
+
+          if (lastFrame) {
+            const camZones = lastFrame.zones || {};
+            const foyer = camZones.entrance_foyer || 0;
+            const steps = camZones.main_steps || 0;
+            const ramp = camZones.accessible_ramp || 0;
+            const approach = camZones.outside_approach || 0;
+            const entranceTotal = foyer + steps + ramp + approach || lastFrame.total_people || 7;
+
+            const entranceDensity = Math.round((entranceTotal / 38.5) * 100) / 100;
+            let entranceLevel: 'low' | 'moderate' | 'high' = 'low';
+            if (entranceDensity >= 0.35) entranceLevel = 'high';
+            else if (entranceDensity >= 0.18) entranceLevel = 'moderate';
+
+            return res.json({
+              floor_id: 'E-F0',
+              timestamp: new Date().toISOString(),
+              source: 'yolo_video',
+              camera_id: 'CAM-01',
+              total_people: lastFrame.total_people || entranceTotal,
+              density_level: entranceLevel,
+              camera_zones: camZones,
+              zones: [
+                {
+                  zone_id: 'cz-e0-entrance',
+                  zone_name: 'Main Ground Entrance & Security Port',
+                  people_count: entranceTotal,
+                  density: entranceDensity,
+                  level: entranceLevel,
+                  camera_zones: camZones,
+                  description: `Real-Time YOLO Video Feed (CAM-01): ${entranceTotal} people tracked across Foyer (${foyer}), Steps (${steps}), Ramp (${ramp}), and Approach (${approach}).`
+                },
+                {
+                  zone_id: 'cz-e0-west-lifts',
+                  zone_name: 'West High-Capacity Elevator Bank (Lifts 1 & 2)',
+                  people_count: 15,
+                  density: 0.46,
+                  level: 'high'
+                },
+                {
+                  zone_id: 'cz-e0-east-lifts',
+                  zone_name: 'East Elevator Bank (Lifts 3 & 4)',
+                  people_count: 8,
+                  density: 0.25,
+                  level: 'moderate'
+                },
+                {
+                  zone_id: 'cz-e0-central-hall',
+                  zone_name: 'Central Grand Spine Corridor',
+                  people_count: 7,
+                  density: 0.16,
+                  level: 'low'
+                },
+                {
+                  zone_id: 'cz-e0-south-hall',
+                  zone_name: 'South Auditoria Corridor',
+                  people_count: 5,
+                  density: 0.11,
+                  level: 'low'
+                }
+              ],
+              camera_telemetry: {
+                camera_id: 'CAM-01',
+                video_source: 'cam01_sample_10s.mp4',
+                resolution: '1280x720',
+                total_people: lastFrame.total_people || entranceTotal,
+                zones: camZones
+              }
+            });
+          }
+        }
+      } catch (err) {
+        console.warn('[Crowd Express Proxy] Notice reading local telemetry fallback:', err);
+      }
+    }
+
+    // Base Zone definitions matching 1600x800 coordinate layout
+    const baseZones: Record<string, Array<{ id: string; name: string; base: number; area: number; phase: number }>> = {
+      'C-F0': [
+        { id: 'cz-c0-south-lobby', name: 'Main Entrance & South Foyer', base: 14, area: 40.0, phase: 0.2 },
+        { id: 'cz-c0-north-lobby', name: 'North Entrance & Stair Lobby', base: 5, area: 36.0, phase: 1.5 },
+        { id: 'cz-c0-central-corridor', name: 'Central Longitudinal Corridor', base: 9, area: 42.0, phase: 2.8 },
+        { id: 'cz-c0-west-corridor', name: 'West Side Connector', base: 3, area: 38.0, phase: 4.1 }
+      ],
+      'C-F1': [
+        { id: 'cz-c1-north-stair', name: 'North-West Stair Lobby (Stairs 1)', base: 12, area: 28.0, phase: 0.8 },
+        { id: 'cz-c1-central-corridor', name: 'Central Academic Hallway', base: 8, area: 40.0, phase: 2.1 },
+        { id: 'cz-c1-east-stair', name: 'North-East Stairwell (Stairs 2)', base: 4, area: 36.0, phase: 3.7 },
+        { id: 'cz-c1-south-balcony', name: 'South Overlook Balcony', base: 6, area: 38.0, phase: 5.0 }
+      ],
+      'C-F2': [
+        { id: 'cz-c2-bridge', name: 'Inter-Block Connection Bridge (to D-Block)', base: 16, area: 33.0, phase: 1.1 },
+        { id: 'cz-c2-central-corridor', name: 'Central Department Corridor', base: 7, area: 39.0, phase: 2.9 },
+        { id: 'cz-c2-north-study', name: 'North Study Concourse', base: 3, area: 44.0, phase: 4.6 }
+      ],
+      'D-F0': [
+        { id: 'cz-d0-entrance', name: 'Ground Floor Atrium & Main Entry', base: 19, area: 36.5, phase: 0.4 },
+        { id: 'cz-d0-central-hall', name: 'Central Accessible Concourse', base: 11, area: 42.0, phase: 1.9 },
+        { id: 'cz-d0-north-hall', name: 'North Classroom Corridor', base: 4, area: 45.0, phase: 3.3 },
+        { id: 'cz-d0-east-stair', name: 'East Stairwell & Service Bay', base: 5, area: 38.0, phase: 5.2 }
+      ],
+      'D-F1': [
+        { id: 'cz-d1-bridge-c', name: 'Sky-Bridge Connection (to C-Block)', base: 17, area: 34.0, phase: 0.9 },
+        { id: 'cz-d1-central-hall', name: 'Central Level 1 Corridor', base: 13, area: 42.0, phase: 2.4 },
+        { id: 'cz-d1-north-hall', name: 'North Gallery Way', base: 3, area: 50.0, phase: 4.0 }
+      ],
+      'E-F0': [
+        { id: 'cz-e0-entrance', name: 'Main Ground Entrance & Security Port', base: 24, area: 38.5, phase: 0.3 },
+        { id: 'cz-e0-west-lifts', name: 'West High-Capacity Elevator Bank (Lifts 1 & 2)', base: 15, area: 32.5, phase: 1.6 },
+        { id: 'cz-e0-east-lifts', name: 'East Elevator Bank (Lifts 3 & 4)', base: 8, area: 32.0, phase: 2.9 },
+        { id: 'cz-e0-central-hall', name: 'Central Grand Spine Corridor', base: 7, area: 44.0, phase: 4.2 },
+        { id: 'cz-e0-south-hall', name: 'South Auditoria Corridor', base: 5, area: 45.0, phase: 5.6 }
+      ]
+    };
+
+    const zonesList = baseZones[normalizedKey] || baseZones['C-F0'];
+    const nowSec = Date.now() / 1000;
+
+    const dynamicZones = zonesList.map(z => {
+      const osc = 2.2 * Math.sin((nowSec / 7.0) + z.phase) + 1.1 * Math.cos((nowSec / 19.0) + (z.phase * 1.5));
+      const count = Math.max(0, Math.round(z.base + osc));
+      const density = Math.round((count / z.area) * 100) / 100;
+      let level: 'low' | 'moderate' | 'high' = 'low';
+      if (density >= 0.35) level = 'high';
+      else if (density >= 0.18) level = 'moderate';
+
+      return {
+        zone_id: z.id,
+        zone_name: z.name,
+        people_count: count,
+        density: density,
+        level: level
+      };
+    });
+
+    return res.json({
+      floor_id: normalizedKey,
+      timestamp: new Date().toISOString(),
+      source: 'mock',
+      zones: dynamicZones
+    });
+  });
   // Vite Middleware Setup
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
