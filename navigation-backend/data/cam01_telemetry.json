@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "camera_id": "CAM-01",
+    "video_source": "cam01_sample_10s.mp4",
+    "resolution": "1280x720",
+    "fps": 25.0,
+    "total_video_frames": 250,
+    "processed_frames": 250,
+    "frame_stride": 1,
+    "duration_seconds": 10.0,
+    "model": "yolov8n.pt",
+    "generated_at": "2026-09-01T19:58:09Z"
+  },
+  "summary": {
+    "total_unique_tracked_people": 7,
+    "peak_total_people": 7,
+    "peak_zone_occupancy": {
+      "entrance_foyer": 2,
+      "main_steps": 3,
+      "accessible_ramp": 1,
+      "outside_approach": 2
+    },
+    "average_zone_occupancy": {
+      "entrance_foyer": 2.0,
+      "main_steps": 2.36,
+      "accessible_ramp": 0.64,
+      "outside_approach": 2.0
+    }
+  },
+  "frames": [
+    {
+      "camera_id": "CAM-01",
+      "timestamp": 10.0,
+      "frame_index": 250,
+      "total_people": 7,
+      "zones": {
+        "entrance_foyer": 2,
+        "main_steps": 2,
+        "accessible_ramp": 1,
+        "outside_approach": 2
+      },
+      "tracked_persons": []
+    }
+  ]
+}
