@@ -19,6 +19,54 @@ export type VerificationStatus = 'unverified' | 'community_verified' | 'admin_ve
 
 export type ConfidenceLevel = 'LOW' | 'MEDIUM' | 'HIGH';
 
+export type CrowdLevel = 'low' | 'moderate' | 'high';
+
+export interface CrowdZone {
+  id: string;
+  name: string;
+  buildingId: string;
+  floorId: string | number;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  peopleCount: number;
+  density: number; // e.g. people/m² or relative density index
+  level: CrowdLevel;
+  description?: string;
+  lastUpdated?: string;
+  source?: 'mock' | 'yolo' | 'yolo_video' | 'sensor' | string;
+  camera_zones?: Record<string, number>;
+}
+
+export interface CrowdDensityZonePayload {
+  zone_id: string;
+  zone_name: string;
+  people_count: number;
+  density: number;
+  level: CrowdLevel;
+  camera_zones?: Record<string, number>;
+  description?: string;
+}
+
+export interface CrowdDensityApiResponse {
+  floor_id: string;
+  timestamp: string;
+  source: 'mock' | 'yolo' | 'yolo_video' | 'sensor' | string;
+  camera_id?: string;
+  total_people?: number;
+  density_level?: CrowdLevel;
+  camera_zones?: Record<string, number>;
+  zones: CrowdDensityZonePayload[];
+  camera_telemetry?: {
+    camera_id: string;
+    video_source?: string;
+    resolution?: string;
+    total_people: number;
+    zones: Record<string, number>;
+  };
+}
+
 export interface AccessibilityFeature {
   id: string;
   buildingId: string;
