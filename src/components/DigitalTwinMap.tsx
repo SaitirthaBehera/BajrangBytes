@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Building, AccessibilityFeature, RouteResult, FloorMap, BuildingRoom } from '../types';
 import { FeatureDetailModal } from './FeatureDetailModal';
+import { ThreeDDigitalTwin } from './ThreeDDigitalTwin';
 import { api } from '../services/api';
 import { 
   ZoomIn, 
@@ -9,7 +10,8 @@ import {
   Filter, 
   Layers, 
   HelpCircle, 
-  ArrowRight
+  ArrowRight,
+  Box
 } from 'lucide-react';
 
 interface DigitalTwinMapProps {
@@ -29,6 +31,7 @@ export const DigitalTwinMap: React.FC<DigitalTwinMapProps> = ({
   onOpenReportTab,
   onNavigateToRoute
 }) => {
+  const [viewMode, setViewMode] = useState<'2d' | '3d'>('3d');
   const [selectedFloorId, setSelectedFloorId] = useState<number>(0);
   const [selectedFeature, setSelectedFeature] = useState<AccessibilityFeature | null>(null);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
@@ -373,33 +376,65 @@ export const DigitalTwinMap: React.FC<DigitalTwinMapProps> = ({
 
             {/* Map Action Controls */}
             <div className="flex items-center space-x-2">
-              <div className="flex items-center bg-slate-700 rounded-lg p-1 space-x-1 border border-slate-600">
+              {/* 2D vs 3D View Switcher */}
+              <div className="flex items-center bg-slate-900/90 p-0.5 rounded-lg border border-slate-700">
                 <button
-                  id="btn-zoom-out"
-                  onClick={() => setZoomLevel(Math.max(0.8, zoomLevel - 0.2))}
-                  className="p-1 text-slate-300 hover:text-white hover:bg-slate-600 rounded transition-colors cursor-pointer"
-                  title="Zoom Out"
+                  id="btn-toggle-2d"
+                  onClick={() => setViewMode('2d')}
+                  className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all flex items-center space-x-1 cursor-pointer ${
+                    viewMode === '2d'
+                      ? 'bg-blue-600 text-white shadow-xs'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                  title="2D Architectural Blueprint"
                 >
-                  <ZoomOut className="w-4 h-4" />
-                </button>
-                <span className="text-xs font-mono px-1">{Math.round(zoomLevel * 100)}%</span>
-                <button
-                  id="btn-zoom-in"
-                  onClick={() => setZoomLevel(Math.min(2.0, zoomLevel + 0.2))}
-                  className="p-1 text-slate-300 hover:text-white hover:bg-slate-600 rounded transition-colors cursor-pointer"
-                  title="Zoom In"
-                >
-                  <ZoomIn className="w-4 h-4" />
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>2D Plan</span>
                 </button>
                 <button
-                  id="btn-zoom-reset"
-                  onClick={() => setZoomLevel(1)}
-                  className="p-1 text-slate-300 hover:text-white hover:bg-slate-600 rounded transition-colors cursor-pointer"
-                  title="Reset Zoom"
+                  id="btn-toggle-3d"
+                  onClick={() => setViewMode('3d')}
+                  className={`px-2.5 py-1 rounded-md text-xs font-bold transition-all flex items-center space-x-1 cursor-pointer ${
+                    viewMode === '3d'
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs ring-1 ring-blue-400/50'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                  title="3D Interactive 360 Digital Twin"
                 >
-                  <RotateCcw className="w-4 h-4" />
+                  <Box className="w-3.5 h-3.5 text-cyan-300 animate-pulse" />
+                  <span>3D Twin (360°)</span>
                 </button>
               </div>
+
+              {viewMode === '2d' && (
+                <div className="flex items-center bg-slate-700 rounded-lg p-1 space-x-1 border border-slate-600">
+                  <button
+                    id="btn-zoom-out"
+                    onClick={() => setZoomLevel(Math.max(0.8, zoomLevel - 0.2))}
+                    className="p-1 text-slate-300 hover:text-white hover:bg-slate-600 rounded transition-colors cursor-pointer"
+                    title="Zoom Out"
+                  >
+                    <ZoomOut className="w-4 h-4" />
+                  </button>
+                  <span className="text-xs font-mono px-1">{Math.round(zoomLevel * 100)}%</span>
+                  <button
+                    id="btn-zoom-in"
+                    onClick={() => setZoomLevel(Math.min(2.0, zoomLevel + 0.2))}
+                    className="p-1 text-slate-300 hover:text-white hover:bg-slate-600 rounded transition-colors cursor-pointer"
+                    title="Zoom In"
+                  >
+                    <ZoomIn className="w-4 h-4" />
+                  </button>
+                  <button
+                    id="btn-zoom-reset"
+                    onClick={() => setZoomLevel(1)}
+                    className="p-1 text-slate-300 hover:text-white hover:bg-slate-600 rounded transition-colors cursor-pointer"
+                    title="Reset Zoom"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
 
               <button
                 id="btn-pin-report"
@@ -411,230 +446,206 @@ export const DigitalTwinMap: React.FC<DigitalTwinMapProps> = ({
             </div>
           </div>
 
-          {/* SVG Digital Twin Architectural Floorplan Container */}
-          <div className="flex-1 relative overflow-auto p-4 flex items-center justify-center bg-slate-950">
-            <div 
-              style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center', transition: 'transform 0.2s ease-out' }}
-              className="w-full max-w-[900px] aspect-[10/6] relative bg-slate-900 rounded-xl border border-slate-800 shadow-2xl p-2 select-none"
-            >
-              {isLoading ? (
-                <div className="text-white flex items-center justify-center h-full">Loading floor map...</div>
-              ) : error ? (
-                <div className="text-rose-500 flex items-center justify-center h-full p-4 text-center">
-                  {error}
-                </div>
-              ) : currentFloorMap ? (
-                <svg
-                  viewBox={`0 0 ${currentFloorMap.width} ${currentFloorMap.height}`}
-                  className="w-full h-full cursor-crosshair"
-                  onClick={handleFloorPlanClick}
-                >
-                  {/* Reconstructed Floor Plan Layout */}
-                  {rooms.map((room, index) => {
-                    // Diagnostic and validation
-                    const x = Number.isFinite(room.x) ? room.x : 0;
-                    const y = Number.isFinite(room.y) ? room.y : 0;
-                    const width = Number.isFinite(room.width) ? room.width : 10;
-                    const height = Number.isFinite(room.height) ? room.height : 10;
+          {/* Viewport Content: 3D Twin or 2D Blueprint */}
+          {viewMode === '3d' ? (
+            <ThreeDDigitalTwin
+              building={building}
+              selectedFloorId={selectedFloorId}
+              features={dynamicFeatures}
+              rooms={rooms}
+              activeRoute={activeRoute}
+              onSelectFeature={(feat) => setSelectedFeature(feat)}
+              onSelectFloor={(floorId) => setSelectedFloorId(floorId)}
+            />
+          ) : (
+            /* SVG Digital Twin Architectural Floorplan Container */
+            <div className="flex-1 relative overflow-auto p-4 flex items-center justify-center bg-slate-950">
+              <div 
+                style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center', transition: 'transform 0.2s ease-out' }}
+                className="w-full max-w-[900px] aspect-[10/6] relative bg-slate-900 rounded-xl border border-slate-800 shadow-2xl p-2 select-none"
+              >
+                {isLoading ? (
+                  <div className="text-white flex items-center justify-center h-full">Loading floor map...</div>
+                ) : error ? (
+                  <div className="text-rose-500 flex items-center justify-center h-full p-4 text-center">
+                    {error}
+                  </div>
+                ) : currentFloorMap ? (
+                  <svg
+                    viewBox={`0 0 ${currentFloorMap.width} ${currentFloorMap.height}`}
+                    className="w-full h-full cursor-crosshair"
+                    onClick={handleFloorPlanClick}
+                  >
+                    {/* Reconstructed Floor Plan Layout */}
+                    {rooms.map((room, index) => {
+                      // Diagnostic and validation
+                      const x = Number.isFinite(room.x) ? room.x : 0;
+                      const y = Number.isFinite(room.y) ? room.y : 0;
+                      const width = Number.isFinite(room.width) ? room.width : 10;
+                      const height = Number.isFinite(room.height) ? room.height : 10;
 
-                    console.log("MAP TRANSFORM DEBUG (Room)", {
-                      name: room.name,
-                      x,
-                      y,
-                      width,
-                      height
-                    });
-                    return (
-                      <g
-                        key={`room-${index}`}
-                        className="cursor-pointer group"
-                        onClick={() => console.log('Room clicked:', room.name)}
-                      >
-                        <rect
-                          x={x}
-                          y={y}
-                          width={width}
-                          height={height}
-                          fill={room.isAccessible ? "#334155" : "#1e293b"}
-                          stroke="#475569"
-                          strokeWidth="2"
-                          className="transition-colors group-hover:fill-blue-800"
-                        />
-                        <text
-                          x={x + width / 2}
-                          y={y + height / 2}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
-                          fontSize="14"
-                          fill="#cbd5e1"
-                          className="pointer-events-none select-none"
+                      return (
+                        <g
+                          key={`room-${index}`}
+                          className="cursor-pointer group"
+                          onClick={() => console.log('Room clicked:', room.name)}
                         >
-                          {room.name}
-                        </text>
+                          <rect
+                            x={x}
+                            y={y}
+                            width={width}
+                            height={height}
+                            fill={room.isAccessible ? "#334155" : "#1e293b"}
+                            stroke="#475569"
+                            strokeWidth="2"
+                            className="transition-colors group-hover:fill-blue-800"
+                          />
+                          <text
+                            x={x + width / 2}
+                            y={y + height / 2}
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fontSize="14"
+                            fill="#cbd5e1"
+                            className="pointer-events-none select-none"
+                          >
+                            {room.name}
+                          </text>
+                        </g>
+                      );
+                    })}
+
+                    {/* Active Navigation Route Layer Overlay */}
+                    {showRouteLayer && activeRoute && activeRoute.pathNodeIds.length > 1 && (
+                      <g key="route-layer" className="animate-in fade-in duration-300">
+                        {/* Draw route lines connecting floor nodes */}
+                        <path
+                          d="M 120 270 L 320 270 L 520 270 L 720 180"
+                          fill="none"
+                          stroke="#38bdf8"
+                          strokeWidth="6"
+                          strokeDasharray="8 8"
+                          strokeLinecap="round"
+                          className="animate-pulse"
+                        />
                       </g>
-                    );
-                  })}
+                    )}
 
-                  {/* Active Navigation Route Layer Overlay */}
-                  {showRouteLayer && activeRoute && activeRoute.pathNodeIds.length > 1 && (
-                    <g key="route-layer" className="animate-in fade-in duration-300">
-                      {/* Draw route lines connecting floor nodes */}
-                      <path
-                        d="M 120 270 L 320 270 L 520 270 L 720 180"
-                        fill="none"
-                        stroke="#38bdf8"
-                        strokeWidth="6"
-                        strokeDasharray="8 8"
-                        strokeLinecap="round"
-                        className="animate-pulse"
-                      />
-                    </g>
-                  )}
+                    {/* Render Interactive Accessibility Markers */}
+                    {filteredFeatures.map((feat) => {
+                      const style = getMarkerStyle(feat.status, feat.verificationStatus);
 
-                  {/* Render Interactive Accessibility Markers */}
-                  {filteredFeatures.map((feat) => {
-                    // Fallback to 1600x800 if map dimensions are missing, to avoid NaN
-                    const mapWidth = (currentFloorMap && Number.isFinite(currentFloorMap.width) && currentFloorMap.width > 0) ? currentFloorMap.width : 1600;
-                    const mapHeight = (currentFloorMap && Number.isFinite(currentFloorMap.height) && currentFloorMap.height > 0) ? currentFloorMap.height : 800;
-                    
-                    const mx = feat.x;
-                    const my = feat.y;
-                    
-                    console.log("MAP TRANSFORM DEBUG (Marker)", {
-                      featId: feat.id,
-                      x: feat.x,
-                      y: feat.y,
-                      mx,
-                      my
-                    });
-
-                    const style = getMarkerStyle(feat.status, feat.verificationStatus);
-
-                    return (
-                      <g
-                        key={`feat-${feat.id}-${feat.floorId}`}
-                        transform={`translate(${Number.isFinite(mx) ? mx : 0}, ${Number.isFinite(my) ? my : 0})`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedFeature(feat);
-                        }}
-                        className="cursor-pointer group"
-                      >
-                        {feat.status === 'temporary' ? (
-                          <>
-                            {/* Temporary marker */}
-                            <circle r="48" fill="#fef3c7" stroke="#f59e0b" strokeWidth="3" />
-                            <path
-                              d="M0 -25 L25 20 L-25 20 Z"
-                              fill="#fef08a"
-                              stroke="#b45309"
-                              strokeWidth="2"
-                              transform="translate(0, -5)"
-                            />
-                            <text
-                              y="10"
-                              fontSize="24"
-                              textAnchor="middle"
-                              fill="#78350f"
-                              fontWeight="bold"
-                              pointerEvents="none"
-                            >
-                              !
-                            </text>
-                            <text
-                              y="70"
-                              fontSize="14"
-                              textAnchor="middle"
-                              fill="#b45309"
-                              fontWeight="bold"
-                              pointerEvents="none"
-                            >
-                              Temporarily Unavailable
-                            </text>
-                          </>
-                        ) : feat.status === 'unverified' ? (
-                          <>
-                            {/* Unverified Marker - Matches the existing circular marker design */}
-                            <circle
-                              r="48"
-                              className={`${style.bg} stroke-2 stroke-white shadow-lg transition-transform group-hover:scale-125`}
-                            />
-
-                            {/* Centered '?' symbol inside the circle */}
-                            <text
-                              y="12"
-                              fontSize="36"
-                              textAnchor="middle"
-                              fill="#ffffff"
-                              fontWeight="bold"
-                              pointerEvents="none"
-                            >
-                              ?
-                            </text>
-
-                            {/* Label directly below marker */}
-                            <text
-                              y="70"
-                              fontSize="14"
-                              textAnchor="middle"
-                              fill="#b45309"
-                              fontWeight="bold"
-                              pointerEvents="none"
-                            >
-                              User Reported
-                            </text>
-
-                            {/* Tooltip on hover */}
-                            <g className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                              <rect x="-70" y="-45" width="140" height="26" rx="6" fill="#0f172a" stroke="#475569" strokeWidth="1" />
-                              <text x="0" y="-28" fill="#f8fafc" fontSize="10" fontWeight="bold" textAnchor="middle">
-                                {feat.name}
+                      return (
+                        <g
+                          key={`feat-${feat.id}-${feat.floorId}`}
+                          transform={`translate(${Number.isFinite(feat.x) ? feat.x : 0}, ${Number.isFinite(feat.y) ? feat.y : 0})`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedFeature(feat);
+                          }}
+                          className="cursor-pointer group"
+                        >
+                          {feat.status === 'temporary' ? (
+                            <>
+                              <circle r="48" fill="#fef3c7" stroke="#f59e0b" strokeWidth="3" />
+                              <path
+                                d="M0 -25 L25 20 L-25 20 Z"
+                                fill="#fef08a"
+                                stroke="#b45309"
+                                strokeWidth="2"
+                                transform="translate(0, -5)"
+                              />
+                              <text
+                                y="10"
+                                fontSize="24"
+                                textAnchor="middle"
+                                fill="#78350f"
+                                fontWeight="bold"
+                                pointerEvents="none"
+                              >
+                                !
                               </text>
-                            </g>
-                          </>
-                        ) : (
-                          <>
-                            {/* Pulse Ring for Barriers */}
-                            {feat.status === 'broken' && (
-                              <circle key="pulse" r="66" fill="none" stroke="#ef4444" strokeWidth="2" className="animate-ping opacity-75" />
-                            )}
-
-                            {/* Marker Outer Circle */}
-                            <circle
-                              r="48"
-                              className={`${style.bg} stroke-2 stroke-white shadow-lg transition-transform group-hover:scale-125`}
-                            />
-
-                            {/* Icon inside marker */}
-                            <text
-                              y="12"
-                              fontSize="36"
-                              textAnchor="middle"
-                              fill="#ffffff"
-                              fontWeight="bold"
-                              pointerEvents="none"
-                            >
-                              {feat.type === 'ramp' ? '♿' : feat.type === 'lift' ? '🛗' : feat.type === 'toilet' ? '🚻' : feat.type === 'stairs' ? '🪜' : '📍'}
-                            </text>
-
-                            {/* Tooltip on hover */}
-                            <g className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                              <rect x="-70" y="-45" width="140" height="26" rx="6" fill="#0f172a" stroke="#475569" strokeWidth="1" />
-                              <text x="0" y="-28" fill="#f8fafc" fontSize="10" fontWeight="bold" textAnchor="middle">
-                                {feat.name}
+                              <text
+                                y="70"
+                                fontSize="14"
+                                textAnchor="middle"
+                                fill="#b45309"
+                                fontWeight="bold"
+                                pointerEvents="none"
+                              >
+                                Temporarily Unavailable
                               </text>
-                            </g>
-                          </>
-                        )}
-                      </g>
-                    );
-                  })}
-                </svg>
-              ) : (
-                <div className="text-white flex items-center justify-center h-full">Floor map unavailable for this floor.</div>
-              )}
+                            </>
+                          ) : feat.status === 'unverified' ? (
+                            <>
+                              <circle
+                                r="48"
+                                className={`${style.bg} stroke-2 stroke-white shadow-lg transition-transform group-hover:scale-125`}
+                              />
+                              <text
+                                y="12"
+                                fontSize="36"
+                                textAnchor="middle"
+                                fill="#ffffff"
+                                fontWeight="bold"
+                                pointerEvents="none"
+                              >
+                                ?
+                              </text>
+                              <text
+                                y="70"
+                                fontSize="14"
+                                textAnchor="middle"
+                                fill="#b45309"
+                                fontWeight="bold"
+                                pointerEvents="none"
+                              >
+                                User Reported
+                              </text>
+                              <g className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                <rect x="-70" y="-45" width="140" height="26" rx="6" fill="#0f172a" stroke="#475569" strokeWidth="1" />
+                                <text x="0" y="-28" fill="#f8fafc" fontSize="10" fontWeight="bold" textAnchor="middle">
+                                  {feat.name}
+                                </text>
+                              </g>
+                            </>
+                          ) : (
+                            <>
+                              {feat.status === 'broken' && (
+                                <circle key="pulse" r="66" fill="none" stroke="#ef4444" strokeWidth="2" className="animate-ping opacity-75" />
+                              )}
+                              <circle
+                                r="48"
+                                className={`${style.bg} stroke-2 stroke-white shadow-lg transition-transform group-hover:scale-125`}
+                              />
+                              <text
+                                y="12"
+                                fontSize="36"
+                                textAnchor="middle"
+                                fill="#ffffff"
+                                fontWeight="bold"
+                                pointerEvents="none"
+                              >
+                                {feat.type === 'ramp' ? '♿' : feat.type === 'lift' ? '🛗' : feat.type === 'toilet' ? '🚻' : feat.type === 'stairs' ? '🪜' : '📍'}
+                              </text>
+                              <g className="opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                <rect x="-70" y="-45" width="140" height="26" rx="6" fill="#0f172a" stroke="#475569" strokeWidth="1" />
+                                <text x="0" y="-28" fill="#f8fafc" fontSize="10" fontWeight="bold" textAnchor="middle">
+                                  {feat.name}
+                                </text>
+                              </g>
+                            </>
+                          )}
+                        </g>
+                      );
+                    })}
+                  </svg>
+                ) : (
+                  <div className="text-white flex items-center justify-center h-full">Floor map unavailable for this floor.</div>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Viewport Bottom Status Bar */}
           <div className="bg-slate-900 px-4 py-2 border-t border-slate-800 flex flex-wrap items-center justify-between text-xs text-slate-400">

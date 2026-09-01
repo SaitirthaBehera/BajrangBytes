@@ -21,6 +21,7 @@
     "@supabase/supabase-js": "^2.112.3",
     "@tailwindcss/vite": "^4.1.14",
     "@types/multer": "^2.2.0",
+    "@types/three": "^0.185.4",
     "@vitejs/plugin-react": "^5.0.4",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
@@ -32,6 +33,7 @@
     "react-dom": "^19.0.1",
     "react-router-dom": "^7.18.2",
     "recharts": "^3.10.1",
+    "three": "^0.185.1",
     "vite": "^6.2.3"
   },
   "devDependencies": {
