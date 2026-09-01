@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { Building, AccessibilityFeature, RouteResult, BuildingRoom } from '../types';
+import { Building, AccessibilityFeature, RouteResult, BuildingRoom, CrowdZone } from '../types';
 import { 
   Compass, 
   Box,
   RotateCw,
   Sun,
-  Moon
+  Moon,
+  Users
 } from 'lucide-react';
 
 interface ThreeDDigitalTwinProps {
@@ -15,14 +16,17 @@ interface ThreeDDigitalTwinProps {
   features: AccessibilityFeature[];
   rooms: BuildingRoom[];
   activeRoute: RouteResult | null;
+  crowdZones?: CrowdZone[];
+  showCrowdDensity?: boolean;
   onSelectFeature?: (feature: AccessibilityFeature) => void;
   onSelectFloor?: (floorId: number) => void;
+  onSelectCrowdZone?: (zone: CrowdZone) => void;
 }
 
 // Helper to generate camera-facing 3D Billboard Sprite Badges
 function createBadgeSprite(text: string, icon: string, bgColor: string, borderColor: string): THREE.Sprite | null {
   const canvas = document.createElement('canvas');
-  canvas.width = 320;
+  canvas.width = 340;
   canvas.height = 96;
   const ctx = canvas.getContext('2d');
   if (!ctx) return null;
@@ -52,7 +56,7 @@ function createBadgeSprite(text: string, icon: string, bgColor: string, borderCo
   ctx.shadowBlur = 8;
   ctx.shadowOffsetX = 2;
   ctx.shadowOffsetY = 2;
-  ctx.font = 'bold 36px sans-serif';
+  ctx.font = 'bold 34px sans-serif';
   ctx.fillStyle = '#ffffff';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
@@ -68,7 +72,7 @@ function createBadgeSprite(text: string, icon: string, bgColor: string, borderCo
   });
   const sprite = new THREE.Sprite(mat);
   sprite.renderOrder = 99999;
-  sprite.scale.set(14, 4.2, 1);
+  sprite.scale.set(15, 4.2, 1);
   return sprite;
 }
 
@@ -78,7 +82,10 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
   features,
   rooms,
   activeRoute,
+  crowdZones = [],
+  showCrowdDensity = false,
   onSelectFeature,
+  onSelectCrowdZone
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [autoRotate, setAutoRotate] = useState<boolean>(false);
@@ -93,15 +100,16 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const buildingGroupRef = useRef<THREE.Group | null>(null);
   const markerMeshesRef = useRef<Map<THREE.Object3D, AccessibilityFeature>>(new Map());
+  const crowdMeshesRef = useRef<Map<THREE.Object3D, CrowdZone>>(new Map());
 
   const controlsStateRef = useRef({
     isDragging: false,
     prevMouseX: 0,
     prevMouseY: 0,
+    radius: 175,
     theta: Math.PI / 4,
-    phi: Math.PI / 3.5,
-    radius: 140,
-    target: new THREE.Vector3(0, 10, 0)
+    phi: Math.PI / 3,
+    target: new THREE.Vector3(0, 20, 0),
   });
 
   useEffect(() => {
@@ -112,56 +120,44 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
     selectedFloorIdRef.current = selectedFloorId;
   }, [selectedFloorId]);
 
-  // 1. Initial Scene Setup
+  // Initial Three.js Scene Setup
   useEffect(() => {
-    if (!mountRef.current) return;
     const container = mountRef.current;
+    if (!container) return;
+
     const width = container.clientWidth || 800;
     const height = container.clientHeight || 520;
 
+    // 1. Scene
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.5, 2000);
+    // 2. Camera with expanded near-plane to avoid clipping during close inspection
+    const camera = new THREE.PerspectiveCamera(42, width / height, 0.5, 3000);
     cameraRef.current = camera;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    // 3. Renderer with hardware acceleration and anti-aliasing
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true, 
+      alpha: true,
+      powerPreference: "high-performance"
+    });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     rendererRef.current = renderer;
-    container.replaceChildren(renderer.domElement);
 
-    // Balanced Soothing Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.6);
-    scene.add(ambientLight);
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    container.appendChild(renderer.domElement);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.8);
-    dirLight.position.set(80, 140, 60);
-    dirLight.castShadow = true;
-    scene.add(dirLight);
-
-    const blueRimLight = new THREE.PointLight(0x38bdf8, 2.0, 280);
-    blueRimLight.position.set(-80, 50, -80);
-    scene.add(blueRimLight);
-
-    const indigoRimLight = new THREE.PointLight(0x818cf8, 1.8, 280);
-    indigoRimLight.position.set(80, 40, 80);
-    scene.add(indigoRimLight);
-
-    // Animation Loop
-    let reqAnimId: number;
-    const animate = () => {
-      reqAnimId = requestAnimationFrame(animate);
-
+    // Camera Orbit Controls logic
+    const updateCamera = () => {
       const cs = controlsStateRef.current;
-      if (autoRotateRef.current && !cs.isDragging) {
-        cs.theta += 0.003;
-      }
-
-      cs.phi = Math.max(0.08, Math.min(Math.PI / 2 - 0.05, cs.phi));
-      cs.radius = Math.max(50, Math.min(280, cs.radius));
+      cs.phi = Math.max(0.08, Math.min(Math.PI / 2.05, cs.phi));
+      cs.radius = Math.max(40, Math.min(600, cs.radius));
 
       const x = cs.target.x + cs.radius * Math.sin(cs.phi) * Math.sin(cs.theta);
       const y = cs.target.y + cs.radius * Math.cos(cs.phi);
@@ -169,27 +165,15 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
 
       camera.position.set(x, y, z);
       camera.lookAt(cs.target);
-
-      // Pulse Beacons
-      markerMeshesRef.current.forEach((feat, mesh) => {
-        if (mesh.userData?.isBeacon) {
-          const time = Date.now() * 0.003;
-          mesh.position.y = mesh.userData.baseY + Math.sin(time + (feat.x || 0)) * 0.6;
-          mesh.rotation.y += 0.02;
-        }
-      });
-
-      renderer.render(scene, camera);
     };
-    animate();
 
-    // Mouse Events
+    updateCamera();
+
+    // Mouse Navigation Listeners
     const onMouseDown = (e: MouseEvent) => {
-      if (e.button === 0) {
-        controlsStateRef.current.isDragging = true;
-        controlsStateRef.current.prevMouseX = e.clientX;
-        controlsStateRef.current.prevMouseY = e.clientY;
-      }
+      controlsStateRef.current.isDragging = true;
+      controlsStateRef.current.prevMouseX = e.clientX;
+      controlsStateRef.current.prevMouseY = e.clientY;
     };
 
     const onMouseMove = (e: MouseEvent) => {
@@ -250,6 +234,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
       const raycaster = new THREE.Raycaster();
       raycaster.setFromCamera(new THREE.Vector2(mouseX, mouseY), camera);
 
+      // Check Feature Beacons first
       const markers = Array.from(markerMeshesRef.current.keys()) as THREE.Object3D[];
       const intersects = raycaster.intersectObjects(markers, true);
 
@@ -262,6 +247,25 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
           const feat = markerMeshesRef.current.get(rootObj)!;
           if (onSelectFeature) {
             onSelectFeature(feat);
+          }
+          return;
+        }
+      }
+
+      // Check Crowd Zone Meshes
+      if (crowdMeshesRef.current.size > 0) {
+        const crowdTargets = Array.from(crowdMeshesRef.current.keys()) as THREE.Object3D[];
+        const crowdIntersects = raycaster.intersectObjects(crowdTargets, true);
+        if (crowdIntersects.length > 0) {
+          let rootObj: THREE.Object3D | null = crowdIntersects[0].object;
+          while (rootObj && !crowdMeshesRef.current.has(rootObj) && rootObj.parent) {
+            rootObj = rootObj.parent;
+          }
+          if (rootObj && crowdMeshesRef.current.has(rootObj)) {
+            const zone = crowdMeshesRef.current.get(rootObj)!;
+            if (onSelectCrowdZone) {
+              onSelectCrowdZone(zone);
+            }
           }
         }
       }
@@ -285,8 +289,40 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
     });
     resizeObserver.observe(container);
 
+    // Animation Render Loop (60 FPS)
+    let animationFrameId: number;
+    const animate = (time: number) => {
+      animationFrameId = requestAnimationFrame(animate);
+
+      if (autoRotateRef.current && !controlsStateRef.current.isDragging) {
+        controlsStateRef.current.theta += 0.004;
+      }
+
+      updateCamera();
+
+      // Gentle pulsing of feature beacons
+      if (buildingGroupRef.current) {
+        buildingGroupRef.current.traverse((obj) => {
+          if (obj.userData && obj.userData.isBeacon) {
+            const baseY = obj.userData.baseY || 5.8;
+            obj.position.y = baseY + Math.sin(time * 0.003 + (obj.id % 5)) * 0.4;
+          }
+          if (obj.userData && obj.userData.isCrowdPulse) {
+            const mat = (obj as THREE.Mesh).material as THREE.MeshStandardMaterial;
+            if (mat && mat.emissiveIntensity !== undefined) {
+              mat.emissiveIntensity = 0.5 + Math.sin(time * 0.004) * 0.3;
+            }
+          }
+        });
+      }
+
+      renderer.render(scene, camera);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
     return () => {
-      cancelAnimationFrame(reqAnimId);
+      cancelAnimationFrame(animationFrameId);
       container.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
@@ -297,83 +333,91 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
     };
   }, []);
 
-  // 2. Build 3D Building Geometry (Re-runs on building, floor, theme or features change)
+  // Rebuild 3D Model when Building, Floor, Features, Rooms, Crowd, or Theme changes
   useEffect(() => {
     const scene = sceneRef.current;
     if (!scene || !building) return;
 
-    const isLight = theme === 'light';
-
-    // Soft Matte Background Colors (Eye-Soothing Cool Slate in light mode, Dark Slate in dark mode)
-    const bgColor = isLight ? 0xdbe4ee : 0x0f172a;
-    scene.background = new THREE.Color(bgColor);
-    scene.fog = new THREE.FogExp2(bgColor, isLight ? 0.0022 : 0.0025);
-
+    // Clear old building geometry
     if (buildingGroupRef.current) {
       scene.remove(buildingGroupRef.current);
+      buildingGroupRef.current.clear();
+      buildingGroupRef.current = null;
     }
     markerMeshesRef.current.clear();
+    crowdMeshesRef.current.clear();
 
+    // Palette Configuration (Dark Mode default vs Soothing Cool-Slate Light Mode)
+    const isLight = theme === 'light';
+    scene.background = new THREE.Color(isLight ? 0xdbe4ee : 0x0a0f1d);
+
+    // Clear old lights and grid
+    const oldLights = scene.children.filter(c => c instanceof THREE.Light || c instanceof THREE.GridHelper);
+    oldLights.forEach(l => scene.remove(l));
+
+    // Studio Lighting
+    const ambientLight = new THREE.AmbientLight(
+      isLight ? 0xffffff : 0x93c5fd, 
+      isLight ? 1.6 : 1.1
+    );
+    scene.add(ambientLight);
+
+    const dirLight1 = new THREE.DirectionalLight(
+      isLight ? 0xfffaed : 0x60a5fa, 
+      isLight ? 1.8 : 1.4
+    );
+    dirLight1.position.set(120, 200, 100);
+    dirLight1.castShadow = true;
+    dirLight1.shadow.mapSize.width = 2048;
+    dirLight1.shadow.mapSize.height = 2048;
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(
+      isLight ? 0x93c5fd : 0x3b82f6, 
+      isLight ? 0.9 : 0.8
+    );
+    dirLight2.position.set(-100, 100, -80);
+    scene.add(dirLight2);
+
+    // Architectural Ground Grid
+    const grid = new THREE.GridHelper(
+      280, 
+      28, 
+      isLight ? 0x94a3b8 : 0x1e3a8a, 
+      isLight ? 0xcbd5e1 : 0x172554
+    );
+    grid.position.y = -2;
+    scene.add(grid);
+
+    // Building Group Container
     const buildingGroup = new THREE.Group();
     buildingGroupRef.current = buildingGroup;
 
-    // Soft Ground Grid & Base Plate
-    const gridColor1 = isLight ? 0x94a3b8 : 0x1e293b;
-    const gridColor2 = isLight ? 0xcbd5e1 : 0x0a101d;
-    const gridHelper = new THREE.GridHelper(260, 52, gridColor1, gridColor2);
-    gridHelper.position.y = -8;
-    buildingGroup.add(gridHelper);
+    const floors = building.floors || [
+      { floorId: 0, name: 'Ground Floor', dimensions: { width: 1600, height: 800 }, rooms: [] },
+      { floorId: 1, name: 'Floor 1', dimensions: { width: 1600, height: 800 }, rooms: [] },
+      { floorId: 2, name: 'Floor 2', dimensions: { width: 1600, height: 800 }, rooms: [] },
+      { floorId: 3, name: 'Floor 3', dimensions: { width: 1600, height: 800 }, rooms: [] }
+    ];
 
-    const baseGeo = new THREE.CylinderGeometry(115, 120, 2.5, 48);
-    const baseMat = new THREE.MeshStandardMaterial({ 
-      color: isLight ? 0xc5d2e0 : 0x0b1329, 
-      roughness: 0.8, 
-      metalness: 0.1 
-    });
-    const basePlate = new THREE.Mesh(baseGeo, baseMat);
-    basePlate.position.y = -9;
-    basePlate.receiveShadow = true;
-    buildingGroup.add(basePlate);
+    const totalFloors = Math.max(1, floors.length);
+    const floorHeight = 16.0; // Distance between stacked floors
 
-    const floors = building.floors || [{ floorId: 0, name: 'Ground Floor', dimensions: { width: 1000, height: 600 }, rooms: [] }];
-    const totalFloors = Math.max(floors.length, 1);
-    const floorHeight = 13;
-
-    // Calculate Dynamic Bounding Box
-    const effectiveRooms = (rooms && rooms.length > 0) ? rooms : (building.floors?.[0]?.rooms || []);
-    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-
+    // Compute bounding box encompassing BOTH rooms and accessibility features
+    const effectiveRooms = rooms.length > 0 ? rooms : (floors[0]?.rooms || []);
+    
+    let minX = 0, maxX = 1600, minY = 0, maxY = 800;
     if (effectiveRooms.length > 0) {
-      effectiveRooms.forEach(r => {
-        const rx = Number.isFinite(r.x) ? r.x : 0;
-        const ry = Number.isFinite(r.y) ? r.y : 0;
-        const rw = Number.isFinite(r.width) ? r.width : 50;
-        const rh = Number.isFinite(r.height) ? r.height : 50;
-        minX = Math.min(minX, rx);
-        maxX = Math.max(maxX, rx + rw);
-        minY = Math.min(minY, ry);
-        maxY = Math.max(maxY, ry + rh);
-      });
+      minX = Math.min(...effectiveRooms.map(r => r.x));
+      maxX = Math.max(...effectiveRooms.map(r => r.x + r.width));
+      minY = Math.min(...effectiveRooms.map(r => r.y));
+      maxY = Math.max(...effectiveRooms.map(r => r.y + r.height));
     }
-
-    if (features && features.length > 0) {
-      features.forEach(f => {
-        if (Number.isFinite(f.x) && Number.isFinite(f.y)) {
-          minX = Math.min(minX, f.x - 40);
-          maxX = Math.max(maxX, f.x + 40);
-          minY = Math.min(minY, f.y - 40);
-          maxY = Math.max(maxY, f.y + 40);
-        }
-      });
-    }
-
-    if (!Number.isFinite(minX) || maxX <= minX) {
-      minX = 0;
-      maxX = 1000;
-    }
-    if (!Number.isFinite(minY) || maxY <= minY) {
-      minY = 0;
-      maxY = 600;
+    if (features.length > 0) {
+      minX = Math.min(minX, ...features.map(f => f.x));
+      maxX = Math.max(maxX, ...features.map(f => f.x));
+      minY = Math.min(minY, ...features.map(f => f.y));
+      maxY = Math.max(maxY, ...features.map(f => f.y));
     }
 
     const rawWidth = Math.max(100, maxX - minX);
@@ -410,7 +454,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
         opacity: isLight ? 0.35 : 0.35,
         roughness: 0.3,
         metalness: 0.8,
-        depthWrite: false // Prevents occluding geometry behind shaft during 360 rotation
+        depthWrite: false
       });
       const shaftMesh = new THREE.Mesh(shaftGeo, shaftMat);
       shaftMesh.position.set(liftCoords.x, (totalFloors * floorHeight) / 2 - 3, liftCoords.z);
@@ -434,7 +478,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
         opacity: isLight ? 0.35 : 0.30,
         roughness: 0.5,
         metalness: 0.4,
-        depthWrite: false // Prevents occluding geometry behind stair during 360 rotation
+        depthWrite: false
       });
       const stairMesh = new THREE.Mesh(stairGeo, stairMat);
       stairMesh.position.set(stairCoords.x, (totalFloors * floorHeight) / 2 - 3, stairCoords.z);
@@ -456,7 +500,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
 
       const isCurrentFloor = String(floor.floorId) === String(selectedFloorId) || Number(floor.floorId) === Number(selectedFloorId);
 
-      // Floor Slab (depthWrite: false on inactive slabs so lower/upper floors are never occluded!)
+      // Floor Slab
       const slabGeo = new THREE.BoxGeometry(buildingWidth, 1.2, buildingDepth);
       const slabMat = new THREE.MeshStandardMaterial({
         color: isCurrentFloor 
@@ -466,7 +510,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
         metalness: isCurrentFloor ? 0.7 : 0.2,
         transparent: true,
         opacity: isCurrentFloor ? 0.98 : (isLight ? 0.35 : 0.25),
-        depthWrite: isCurrentFloor // Only active floor writes to depth buffer
+        depthWrite: isCurrentFloor
       });
       const slab = new THREE.Mesh(slabGeo, slabMat);
       slab.receiveShadow = true;
@@ -498,7 +542,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
       labelPlate.position.set(-buildingWidth / 2 + 10, 1.8, buildingDepth / 2 + 0.3);
       floorGroup.add(labelPlate);
 
-      // Rooms (depthWrite: false on inactive rooms so they never block view during 360 rotation!)
+      // Rooms (uniform height 4.6 across all floors)
       effectiveRooms.forEach((r) => {
         const c = to3DCoords(r.x, r.y, r.width, r.height);
         const wallHeight = 4.6;
@@ -512,7 +556,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
           opacity: isCurrentFloor ? 0.88 : (isLight ? 0.22 : 0.15),
           roughness: 0.3,
           metalness: isCurrentFloor ? 0.5 : 0.1,
-          depthWrite: isCurrentFloor // Inactive rooms won't occlude other elements
+          depthWrite: isCurrentFloor
         });
         const roomMesh = new THREE.Mesh(roomGeo, roomMat);
         roomMesh.position.set(c.x, wallHeight / 2 + 0.6, c.z);
@@ -535,7 +579,77 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
         roomMesh.add(roomWire);
       });
 
-      // 3. Render 3D Accessibility Markers and 3D Billboard Tags on Active Floor
+      // 3. Render 3D Live Crowd Heatmap Holograms & Badges (when ON)
+      if (showCrowdDensity && isCurrentFloor && crowdZones.length > 0) {
+        crowdZones.forEach((zone) => {
+          const c = to3DCoords(zone.x, zone.y, zone.width, zone.height);
+          
+          let heatColor = 0x10b981;
+          let emissiveColor = 0x059669;
+          let badgeBg = '#064e3b';
+          let badgeBorder = '#34d399';
+          let levelTag = 'Low';
+
+          if (zone.level === 'high') {
+            heatColor = 0xef4444;
+            emissiveColor = 0xdc2626;
+            badgeBg = '#7f1d1d';
+            badgeBorder = '#f87171';
+            levelTag = 'High';
+          } else if (zone.level === 'moderate') {
+            heatColor = 0xf59e0b;
+            emissiveColor = 0xd97706;
+            badgeBg = '#78350f';
+            badgeBorder = '#fbbf24';
+            levelTag = 'Moderate';
+          }
+
+          // Glowing 3D Heat Slab hovering over the floor
+          const heatGeo = new THREE.BoxGeometry(c.w, 0.5, c.d);
+          const heatMat = new THREE.MeshStandardMaterial({
+            color: heatColor,
+            emissive: emissiveColor,
+            emissiveIntensity: zone.level === 'high' ? 0.85 : 0.55,
+            transparent: true,
+            opacity: zone.level === 'high' ? 0.65 : (zone.level === 'moderate' ? 0.50 : 0.38),
+            depthWrite: false,
+            roughness: 0.2
+          });
+          const heatMesh = new THREE.Mesh(heatGeo, heatMat);
+          heatMesh.position.set(c.x, 0.9, c.z);
+          heatMesh.userData = { isCrowdPulse: true, zone };
+          floorGroup.add(heatMesh);
+          crowdMeshesRef.current.set(heatMesh, zone);
+
+          // Heat Outline Wireframe
+          const heatEdges = new THREE.EdgesGeometry(heatGeo);
+          const heatWire = new THREE.LineSegments(
+            heatEdges,
+            new THREE.LineBasicMaterial({
+              color: heatColor,
+              transparent: true,
+              opacity: 0.9,
+              depthWrite: false
+            })
+          );
+          heatMesh.add(heatWire);
+
+          // Floating Camera-Facing Crowd Badge
+          const crowdBadge = createBadgeSprite(
+            `${zone.name}: ${zone.peopleCount} ppl (${levelTag})`,
+            '👥',
+            badgeBg,
+            badgeBorder
+          );
+          if (crowdBadge) {
+            crowdBadge.position.set(c.x, 5.8, c.z);
+            floorGroup.add(crowdBadge);
+            crowdMeshesRef.current.set(crowdBadge, zone);
+          }
+        });
+      }
+
+      // 4. Render 3D Accessibility Markers and 3D Billboard Tags on Active Floor
       const floorFeatures = isCurrentFloor ? features : [];
       
       floorFeatures.forEach(feat => {
@@ -623,7 +737,7 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
         markerMeshesRef.current.set(beaconMesh, feat);
       });
 
-      // 4. If Active Route is present and on this floor, draw 3D Glowing Spline
+      // 5. If Active Route is present and on this floor, draw 3D Glowing Spline
       if (activeRoute && isCurrentFloor) {
         const curve = new THREE.CatmullRomCurve3([
           new THREE.Vector3(-buildingWidth / 3, 1.4, buildingDepth / 3),
@@ -643,166 +757,146 @@ export const ThreeDDigitalTwin: React.FC<ThreeDDigitalTwinProps> = ({
     scene.add(buildingGroup);
     controlsStateRef.current.target.set(0, (totalFloors * floorHeight) / 3, 0);
 
-  }, [building, selectedFloorId, features, rooms, activeRoute, theme]);
+  }, [building, selectedFloorId, features, rooms, activeRoute, crowdZones, showCrowdDensity, theme]);
 
   const handleSetCameraPreset = (preset: 'iso' | 'top' | 'front') => {
     setCameraView(preset);
     const cs = controlsStateRef.current;
-    if (preset === 'iso') {
-      cs.theta = Math.PI / 4;
-      cs.phi = Math.PI / 3.5;
-      cs.radius = 140;
-    } else if (preset === 'top') {
+    if (preset === 'top') {
+      cs.phi = 0.09;
       cs.theta = 0;
-      cs.phi = 0.12;
-      cs.radius = 150;
+      cs.radius = 210;
     } else if (preset === 'front') {
+      cs.phi = Math.PI / 2.08;
       cs.theta = 0;
-      cs.phi = Math.PI / 2.2;
-      cs.radius = 130;
+      cs.radius = 180;
+    } else {
+      cs.phi = Math.PI / 3;
+      cs.theta = Math.PI / 4;
+      cs.radius = 175;
     }
   };
 
-  const isLight = theme === 'light';
-
   return (
-    <div className={`relative w-full h-[520px] rounded-xl overflow-hidden border shadow-2xl select-none transition-colors duration-300 ${
-      isLight ? 'bg-slate-200/80 border-slate-300' : 'bg-slate-950 border-slate-800'
-    }`}>
-      {/* 3D Canvas Mount */}
-      <div ref={mountRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
-
-      {/* Floating 3D HUD Top Toolbar */}
-      <div className="absolute top-3 left-3 right-3 flex flex-wrap items-center justify-between pointer-events-none gap-2">
+    <div className="relative w-full h-full min-h-[500px] flex flex-col select-none overflow-hidden rounded-2xl">
+      {/* 3D Viewport HUD Toolbar */}
+      <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between pointer-events-none gap-2">
         {/* Left Status Badge */}
-        <div className={`flex items-center space-x-2 px-3 py-1.5 rounded-lg border shadow-lg pointer-events-auto text-xs backdrop-blur-md ${
-          isLight 
-            ? 'bg-slate-100/90 border-slate-300 text-slate-800' 
-            : 'bg-slate-900/80 border-slate-700/70 text-white'
-        }`}>
-          <Box className="w-4 h-4 text-blue-500 animate-pulse" />
-          <span className="font-bold">{building.name}</span>
-          <span className={isLight ? 'text-slate-400' : 'text-slate-500'}>•</span>
-          <span className="text-blue-600 font-mono font-semibold">360° Real-time Twin</span>
+        <div className="flex items-center space-x-2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700/60 shadow-lg pointer-events-auto">
+          <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+          <span className="text-xs font-bold text-slate-200">
+            {building.name}
+          </span>
+          <span className="text-[10px] text-blue-400 font-mono">
+            360° Real-time Twin
+          </span>
+          {showCrowdDensity && (
+            <span className="bg-emerald-950 text-emerald-400 border border-emerald-700/60 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center space-x-1">
+              <Users className="w-2.5 h-2.5 mr-0.5" />
+              <span>3D Crowd Heatmap</span>
+            </span>
+          )}
         </div>
 
-        {/* Right Camera & Theme Tools */}
-        <div className={`flex items-center space-x-1.5 p-1 rounded-lg border shadow-lg pointer-events-auto text-xs backdrop-blur-md ${
-          isLight 
-            ? 'bg-slate-100/90 border-slate-300 text-slate-700' 
-            : 'bg-slate-900/80 border-slate-700/70 text-white'
-        }`}>
+        {/* Right Camera & Theme Controls */}
+        <div className="flex items-center space-x-1.5 pointer-events-auto bg-slate-900/80 backdrop-blur-md p-1 rounded-xl border border-slate-700/60 shadow-lg">
           {/* Light / Dark Mode Toggle */}
           <button
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            className={`px-2.5 py-1 rounded-md transition-all flex items-center space-x-1 font-semibold cursor-pointer ${
-              isLight 
-                ? 'bg-slate-300/80 text-slate-900 hover:bg-slate-300' 
-                : 'bg-indigo-900/80 text-indigo-200 hover:bg-indigo-800'
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className={`px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center space-x-1 cursor-pointer transition-all ${
+              theme === 'light'
+                ? 'bg-amber-500 text-slate-950 font-bold shadow-xs'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800'
             }`}
-            title="Toggle Light / Dark 3D Theme"
+            title="Toggle Light Mode / Dark Mode"
           >
-            {isLight ? <Moon className="w-3.5 h-3.5 text-slate-700" /> : <Sun className="w-3.5 h-3.5 text-amber-400" />}
-            <span>{isLight ? 'Dark Mode' : 'Light Mode'}</span>
+            {theme === 'light' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+            <span className="hidden sm:inline">{theme === 'light' ? 'Light Mode' : 'Dark Mode'}</span>
           </button>
 
+          <div className="w-px h-4 bg-slate-700 mx-0.5" />
+
+          {/* 360 Auto-Spin */}
           <button
             onClick={() => setAutoRotate(!autoRotate)}
-            className={`px-2.5 py-1 rounded-md transition-all flex items-center space-x-1 font-medium cursor-pointer ${
+            className={`px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center space-x-1 cursor-pointer transition-all ${
               autoRotate 
                 ? 'bg-blue-600 text-white shadow-xs' 
-                : (isLight ? 'text-slate-700 hover:bg-slate-200' : 'text-slate-400 hover:text-white hover:bg-slate-800')
+                : 'text-slate-300 hover:text-white hover:bg-slate-800'
             }`}
-            title="Toggle 360 Auto-Rotation"
+            title="Toggle 360° Auto-Rotation"
           >
-            <RotateCw className={`w-3.5 h-3.5 ${autoRotate ? 'animate-spin' : ''}`} style={{ animationDuration: '8s' }} />
-            <span>360° Spin</span>
+            <RotateCw className={`w-3.5 h-3.5 ${autoRotate ? 'animate-spin' : ''}`} />
+            <span className="hidden sm:inline">360° Spin</span>
           </button>
 
-          <div className={`h-4 w-px mx-1 ${isLight ? 'bg-slate-300' : 'bg-slate-700'}`} />
-
-          {/* Camera Angles */}
-          <button
-            onClick={() => handleSetCameraPreset('iso')}
-            className={`px-2 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer ${
-              cameraView === 'iso' 
-                ? (isLight ? 'bg-blue-600 text-white' : 'bg-slate-700 text-cyan-300') 
-                : (isLight ? 'text-slate-700 hover:bg-slate-200' : 'text-slate-400 hover:text-white')
-            }`}
-          >
-            Isometric
-          </button>
-          <button
-            onClick={() => handleSetCameraPreset('top')}
-            className={`px-2 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer ${
-              cameraView === 'top' 
-                ? (isLight ? 'bg-blue-600 text-white' : 'bg-slate-700 text-cyan-300') 
-                : (isLight ? 'text-slate-700 hover:bg-slate-200' : 'text-slate-400 hover:text-white')
-            }`}
-          >
-            Top-Down
-          </button>
-          <button
-            onClick={() => handleSetCameraPreset('front')}
-            className={`px-2 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer ${
-              cameraView === 'front' 
-                ? (isLight ? 'bg-blue-600 text-white' : 'bg-slate-700 text-cyan-300') 
-                : (isLight ? 'text-slate-700 hover:bg-slate-200' : 'text-slate-400 hover:text-white')
-            }`}
-          >
-            Elevation
-          </button>
+          {/* Preset Camera Views */}
+          <div className="flex items-center bg-slate-800/80 rounded-lg p-0.5 space-x-0.5">
+            <button
+              onClick={() => handleSetCameraPreset('iso')}
+              className={`px-2 py-0.5 text-[11px] font-bold rounded cursor-pointer ${
+                cameraView === 'iso' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Isometric
+            </button>
+            <button
+              onClick={() => handleSetCameraPreset('top')}
+              className={`px-2 py-0.5 text-[11px] font-bold rounded cursor-pointer ${
+                cameraView === 'top' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Top-Down
+            </button>
+            <button
+              onClick={() => handleSetCameraPreset('front')}
+              className={`px-2 py-0.5 text-[11px] font-bold rounded cursor-pointer ${
+                cameraView === 'front' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Elevation
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Hovered Feature Tooltip Card */}
+      {/* Main 3D Canvas Mount Point */}
+      <div 
+        ref={mountRef} 
+        className="w-full h-full min-h-[500px] cursor-grab active:cursor-grabbing flex-1" 
+      />
+
+      {/* Hovered Feature Popup Card */}
       {hoveredFeature && (
-        <div className={`absolute top-16 left-4 p-3.5 rounded-xl border shadow-2xl max-w-xs pointer-events-none animate-in fade-in zoom-in duration-200 backdrop-blur-md ${
-          isLight 
-            ? 'bg-white/95 border-blue-400 text-slate-900' 
-            : 'bg-slate-900/90 border-blue-500/50 text-white'
-        }`}>
-          <div className="flex items-center space-x-2 mb-1">
-            <span className="text-base">
-              {hoveredFeature.type === 'ramp' ? '♿' : hoveredFeature.type === 'lift' ? '🛗' : hoveredFeature.type === 'toilet' ? '🚻' : '⚠️'}
-            </span>
-            <span className="font-bold text-xs text-blue-600">{hoveredFeature.name}</span>
-          </div>
-          <p className={`text-[11px] leading-relaxed line-clamp-2 ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
-            {hoveredFeature.description || 'Verified accessibility feature in digital twin graph.'}
-          </p>
-          <div className={`flex items-center justify-between mt-2 pt-2 border-t text-[10px] ${
-            isLight ? 'border-slate-200 text-slate-500' : 'border-slate-800 text-slate-400'
+        <div className="absolute bottom-12 left-4 z-20 bg-slate-900/90 backdrop-blur-md p-3 rounded-xl border border-slate-700 text-white shadow-2xl pointer-events-none flex items-center space-x-3">
+          <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm ${
+            hoveredFeature.status === 'broken' ? 'bg-rose-600' : 'bg-emerald-600'
           }`}>
-            <span>Status: <strong className="text-emerald-600 uppercase">{hoveredFeature.status}</strong></span>
-            <span className="text-blue-600 font-semibold">Click for details ↗</span>
+            {hoveredFeature.type === 'ramp' ? '♿' : hoveredFeature.type === 'lift' ? '🛗' : hoveredFeature.type === 'toilet' ? '🚻' : '📍'}
+          </div>
+          <div>
+            <div className="text-xs font-bold">{hoveredFeature.name}</div>
+            <div className="text-[10px] text-slate-400 capitalize">Status: {hoveredFeature.status} • Click to inspect</div>
           </div>
         </div>
       )}
 
-      {/* 3D Navigation Guide Helper Overlay */}
-      <div className={`absolute bottom-3 left-3 px-3 py-2 rounded-lg border text-[11px] flex items-center space-x-4 shadow-lg pointer-events-none backdrop-blur-md ${
-        isLight 
-          ? 'bg-slate-100/90 border-slate-300 text-slate-700' 
-          : 'bg-slate-900/80 border-slate-800 text-slate-400'
-      }`}>
-        <div className="flex items-center space-x-1.5">
-          <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
-          <span className={`font-medium ${isLight ? 'text-slate-900' : 'text-slate-300'}`}>🖱️ Left Drag: Rotate 360°</span>
+      {/* Orbit Helper Guide at bottom */}
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between text-[11px] text-slate-400 bg-slate-900/70 backdrop-blur-xs px-3.5 py-1.5 rounded-xl border border-slate-800/80 pointer-events-none">
+        <div className="flex items-center space-x-3">
+          <span className="flex items-center space-x-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            <span>Left Drag: <strong>Rotate 360°</strong></span>
+          </span>
+          <span>•</span>
+          <span>Scroll: <strong>Zoom In/Out</strong></span>
+          <span>•</span>
+          <span className="text-blue-300">Click Beacons or Heat Zones: <strong>Inspect</strong></span>
         </div>
-        <span>•</span>
-        <span>📜 Scroll: Zoom In/Out</span>
-        <span>•</span>
-        <span className="text-blue-600 font-semibold">💎 Click Beacons: Inspect</span>
-      </div>
-
-      {/* Compass / Orientation Rose */}
-      <div className={`absolute bottom-3 right-3 p-2 rounded-full border shadow-lg pointer-events-none flex items-center justify-center backdrop-blur-md ${
-        isLight 
-          ? 'bg-slate-100/90 border-slate-300 text-slate-700' 
-          : 'bg-slate-900/80 border-slate-800 text-slate-400'
-      }`}>
-        <Compass className="w-5 h-5 text-blue-500" />
+        <div className="flex items-center space-x-1 text-slate-500 font-mono text-[10px]">
+          <Compass className="w-3 h-3 text-blue-400" />
+          <span>WebGL 60FPS</span>
+        </div>
       </div>
     </div>
   );

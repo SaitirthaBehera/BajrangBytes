@@ -731,8 +731,11 @@ export const DigitalTwinMap: React.FC<DigitalTwinMapProps> = ({
                 features={dynamicFeatures}
                 rooms={rooms}
                 activeRoute={activeRoute}
+                crowdZones={crowdZones}
+                showCrowdDensity={showCrowdDensity}
                 onSelectFeature={(feat) => setSelectedFeature(feat)}
                 onSelectFloor={(floorId) => setSelectedFloorId(floorId)}
+                onSelectCrowdZone={(zone) => setSelectedCrowdZone(zone)}
               />
             </div>
           ) : (
