@@ -8,8 +8,24 @@ const __dirname = path.dirname(__filename);
 const backendDir = path.resolve(__dirname, '..', 'navigation-backend');
 
 function findPythonCommand() {
-  // Ordered by priority: Windows py launcher specific version, general py launcher, python3, python
+  // 1. Check local virtual environment first (venv / .venv)
+  const venvPaths = [
+    path.join(backendDir, 'venv', 'Scripts', 'python.exe'),
+    path.join(backendDir, '.venv', 'Scripts', 'python.exe'),
+    path.join(backendDir, 'venv', 'bin', 'python'),
+    path.join(backendDir, '.venv', 'bin', 'python')
+  ];
+
+  for (const venvPython of venvPaths) {
+    if (fs.existsSync(venvPython)) {
+      console.log(`[AccessTwin Backend] Detected virtualenv python at: ${venvPython}`);
+      return { cmd: `"${venvPython}"`, baseArgs: [] };
+    }
+  }
+
+  // 2. Ordered by priority: Windows py launcher specific version, general py launcher, python3, python
   const candidates = [
+    { cmd: 'py', args: ['-3.11', '--version'] },
     { cmd: 'py', args: ['-3.12', '--version'] },
     { cmd: 'py', args: ['-3', '--version'] },
     { cmd: 'py', args: ['--version'] },
@@ -28,9 +44,9 @@ function findPythonCommand() {
     }
   }
 
-  // Default fallback for Windows py -3.12 or python
+  // Default fallback for Windows py -3.11 or python
   return process.platform === 'win32'
-    ? { cmd: 'py', baseArgs: ['-3.12'] }
+    ? { cmd: 'py', baseArgs: ['-3.11'] }
     : { cmd: 'python3', baseArgs: [] };
 }
 
