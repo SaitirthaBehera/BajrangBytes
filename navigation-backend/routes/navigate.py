@@ -111,6 +111,7 @@ def _build_route_response(start_id: str, end_id: str, profile: str) -> Dict[str,
         "accessible_features_used": accessible_features,
         "route_type_label": route_type_label,
         "warnings": route_result.get("warnings", []),
+        "crowd_advisory": route_result.get("crowd_advisory"),
         # Legacy/Twin digital map fields for UI compatibility
         "fromNode": {
             "id": start_id,
