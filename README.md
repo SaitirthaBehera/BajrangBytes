@@ -1,3 +1,4 @@
+
 <div align="center">
   <h1>AccessTwin ♿🏛️</h1>
   <h3><i>"Find your destination. Follow the smartest route."</i></h3>
@@ -41,7 +42,7 @@ In India, millions of citizens with physical or visual impairments struggle to n
 
 | 🌐 3D Spatial Digital Twin (WebGL) | 🧠 Live Crowd-Aware Navigation |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/63dd14c9-7088-4e3f-ba74-6503c9ea8d58" width="100%" alt="3D Digital Twin Map" /> | <img src="https://github.com/user-attachments/assets/268a0c86-8ec7-40df-adaa-968482f6cc4a" width="100%" alt="Crowd Aware Route" /> |
+| <img src="https://github.com/user-attachments/assets/63dd14c9-7088-4e3f-ba74-6503c9ea8d58" width="100%" alt="3D Digital Twin Map" /> | <img width="1919" height="1079" alt="Screenshot 2026-09-05 223342" src="https://github.com/user-attachments/assets/4dbe8b9f-d91d-4e43-b645-0ec40f446e5e" /> |
 
 | 📸 TwinGram Community Social Feed | 🤖 AI Multimodal Barrier Detection |
 | :---: | :---: |
