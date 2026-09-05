@@ -18,11 +18,11 @@ except ImportError:
         def get_floor_crowd_density(floor_id: str) -> Dict[str, Any]:
             return {}
 
-# Crowd delay and impedance penalty multipliers
+# Crowd delay and impedance penalty multipliers (calibrated for real-world queue delays)
 CROWD_PENALTY_MULTIPLIERS: Dict[str, float] = {
     "low": 1.0,        # Free-flowing corridor / elevator (no penalty)
-    "moderate": 1.3,   # Moderate human traffic (+30% impedance)
-    "high": 1.8,       # High density congestion (+80% impedance)
+    "moderate": 2.5,   # Moderate human traffic (+150% queue delay)
+    "high": 5.0,       # High density congestion (+400% elevator queue delay)
 }
 
 class AccessibilityRouter:
@@ -399,12 +399,13 @@ class AccessibilityRouter:
             if "floor" in node_info:
                 floors_set.add(node_info["floor"])
 
-        for i in range(len(path) - 1):
+        # Consolidate continuous elevator or stair steps across multiple floors
+        i = 0
+        while i < len(path) - 1:
             curr_id = path[i]
             next_id = path[i + 1]
             curr_node = self.nodes_data.get(curr_id, {"label": curr_id.replace("_", " ").title(), "floor": 0})
             next_node = self.nodes_data.get(next_id, {"label": next_id.replace("_", " ").title(), "floor": 0})
-
             edge_info = edge_history[i] if i < len(edge_history) else {"type": "pathway", "distance": 10}
             edge_type = edge_info.get("type", "pathway")
             edge_dist = edge_info.get("distance", 10)
@@ -414,39 +415,102 @@ class AccessibilityRouter:
             curr_floor_str = "Ground Floor" if curr_floor == 0 else f"Floor {curr_floor}"
             next_floor_str = "Ground Floor" if next_floor == 0 else f"Floor {next_floor}"
 
+            # If this is an elevator edge, look ahead to see the final elevator floor reached
             if edge_type == "elevator" or (curr_floor != next_floor and edge_type != "stairs"):
-                instruction = f"Take the Voice-Assisted Passenger Elevator from {curr_node['label']} ({curr_floor_str}) to {next_node['label']} ({next_floor_str})."
+                start_elev_node = curr_node
+                start_elev_floor = curr_floor
+                end_elev_node = next_node
+                end_elev_floor = next_floor
+                elev_dist = edge_dist
+
+                # Lookahead to skip intermediate elevator stops (e.g. F0 -> F1 -> F2 becomes F0 -> F2)
+                while i + 1 < len(path) - 1 and edge_history[i + 1].get("type") == "elevator":
+                    i += 1
+                    end_elev_node = self.nodes_data.get(path[i + 1], {"label": path[i + 1].replace("_", " ").title(), "floor": end_elev_floor + 1})
+                    end_elev_floor = end_elev_node.get("floor", end_elev_floor + 1)
+                    elev_dist += edge_history[i].get("distance", 10)
+
+                start_fl_str = "Ground Floor" if start_elev_floor == 0 else f"Floor {start_elev_floor}"
+                end_fl_str = "Ground Floor" if end_elev_floor == 0 else f"Floor {end_elev_floor}"
+
+                lift_name = start_elev_node.get("label", "Elevator")
+                if "lift" in curr_id.lower() or "elevator" in curr_id.lower():
+                    if "lift3" in curr_id or "lift4" in curr_id or "east" in curr_id:
+                        lift_name = "East Lift Lobby (Lifts 3 & 4 - Less Crowded)"
+                    elif "lift1" in curr_id or "lift2" in curr_id or "west" in curr_id:
+                        lift_name = "West Lift Lobby (Lifts 1 & 2)"
+
+                instruction = f"Take the elevator at {lift_name} from {start_fl_str} up to {end_fl_str}."
                 features_used.add("Voice-Guided Passenger Elevator")
                 floor_transitions.append({
-                    "fromFloor": curr_floor,
-                    "toFloor": next_floor,
+                    "fromFloor": start_elev_floor,
+                    "toFloor": end_elev_floor,
                     "type": "elevator",
-                    "description": f"Elevator from {curr_floor_str} to {next_floor_str}"
+                    "description": f"Elevator from {start_fl_str} to {end_fl_str}"
                 })
+                steps.append(instruction)
+                i += 1
+                continue
+
             elif edge_type == "stairs":
-                instruction = f"Take the stairs from {curr_node['label']} ({curr_floor_str}) to {next_node['label']} ({next_floor_str})."
+                start_stair_node = curr_node
+                start_stair_floor = curr_floor
+                end_stair_node = next_node
+                end_stair_floor = next_floor
+
+                while i + 1 < len(path) - 1 and edge_history[i + 1].get("type") == "stairs":
+                    i += 1
+                    end_stair_node = self.nodes_data.get(path[i + 1], {"label": path[i + 1].replace("_", " ").title(), "floor": end_stair_floor + 1})
+                    end_stair_floor = end_stair_node.get("floor", end_stair_floor + 1)
+
+                start_fl_str = "Ground Floor" if start_stair_floor == 0 else f"Floor {start_stair_floor}"
+                end_fl_str = "Ground Floor" if end_stair_floor == 0 else f"Floor {end_stair_floor}"
+
+                instruction = f"Take the staircase from {start_fl_str} to {end_fl_str}."
                 floor_transitions.append({
-                    "fromFloor": curr_floor,
-                    "toFloor": next_floor,
+                    "fromFloor": start_stair_floor,
+                    "toFloor": end_stair_floor,
                     "type": "stairs",
-                    "description": f"Stairs from {curr_floor_str} to {next_floor_str}"
+                    "description": f"Stairs from {start_fl_str} to {end_fl_str}"
                 })
-            elif edge_type == "bridge" or ("_f" in curr_id and "_f" in next_id and curr_id[:7] != next_id[:7]):
-                instruction = f"Cross the step-free connecting bridge from {curr_node['label']} to {next_node['label']} ({edge_dist}m)."
+                steps.append(instruction)
+                i += 1
+                continue
+
+            is_bridge = (edge_type == "bridge") or (
+                curr_node.get("building_id") != next_node.get("building_id")
+                and curr_node.get("building_id") not in ("outdoor", "campus", "")
+                and next_node.get("building_id") not in ("outdoor", "campus", "")
+                and (curr_floor > 0 or next_floor > 0)
+            )
+
+            is_outdoor_ground = (curr_floor == 0 and next_floor == 0) and (
+                "entrance" in curr_id or "entrance" in next_id or "roundabout" in curr_id or "roundabout" in next_id or curr_node.get("building_id") == "outdoor" or next_node.get("building_id") == "outdoor"
+            )
+
+            if is_bridge:
+                bldg_name = next_node.get("building_id", "adjacent block").replace("block_", "Block ").title()
+                instruction = f"Cross the elevated skywalk bridge into {bldg_name} ({next_node['label']})."
                 features_used.add("Accessible Connecting Bridge")
             elif edge_type == "ramp":
-                instruction = f"Follow the accessible graded ramp from {curr_node['label']} to {next_node['label']} ({edge_dist}m)."
+                instruction = f"Follow the accessible graded ramp towards {next_node['label']}."
                 features_used.add("Wheelchair Accessible Ramp")
+            elif is_outdoor_ground:
+                if i == 0:
+                    instruction = f"Start at {curr_node['label']} and follow the paved campus walkway towards {next_node['label']}."
+                else:
+                    instruction = f"Follow the paved campus walkway from {curr_node['label']} towards {next_node['label']}."
             else:
                 if i == 0:
-                    instruction = f"Start at {curr_node['label']} ({curr_floor_str}) and follow the accessible walkway towards {next_node['label']} ({edge_dist}m)."
+                    instruction = f"Start at {curr_node['label']} and proceed down the hallway towards {next_node['label']}."
                 else:
-                    instruction = f"Continue along corridor from {curr_node['label']} to {next_node['label']} ({edge_dist}m)."
+                    instruction = f"Continue along corridor towards {next_node['label']}."
                 
                 if edge_info.get("tactile", False):
                     features_used.add("Tactile Ground Surface Paving")
 
             steps.append(instruction)
+            i += 1
 
         # Final destination step
         dest_node = self.nodes_data.get(path[-1], {"label": path[-1].replace("_", " ").title(), "floor": 0})
@@ -467,14 +531,74 @@ class AccessibilityRouter:
         else:
             route_type_label = "Standard Shortest Walking Route"
 
-        # Voice navigation script
+        # Generate Natural Human Voice Navigation Script (Concise & Spoken)
         start_label = self.nodes_data.get(path[0], {}).get("label", path[0].replace("_", " ").title())
         dest_label = dest_node.get("label", path[-1].replace("_", " ").title())
         
-        voice_script = f"Navigating from {start_label} to {dest_label} using {route_type_label}. Total distance is {total_distance} meters, estimated travel time is {est_minutes} minute{'s' if est_minutes > 1 else ''}. "
-        for idx, step_text in enumerate(steps[:-1]):
-            voice_script += f"Step {idx + 1}: {step_text} "
-        voice_script += f"Finally, you will arrive at your destination, {dest_label}."
+        voice_parts = []
+        voice_parts.append(f"Starting route from {start_label} to {dest_label}.")
+
+        has_east_lift = any("lift3" in n or "lift4" in n for n in path)
+        has_west_lift = any("lift1" in n or "lift2" in n for n in path)
+        has_stairs = any("stairs" in n for n in path)
+
+        if crowd_advisory and crowd_advisory.get("avoided_congestion"):
+            if has_east_lift:
+                voice_parts.append("Live crowd advisory: West Lifts 1 and 2 are currently congested. You are routed via East Lifts 3 and 4 which is clear.")
+            elif has_stairs and user_profile != "wheelchair":
+                voice_parts.append("Live crowd alert: Elevators have high waiting times. Routed via clear staircase for faster transit.")
+            else:
+                voice_parts.append("Live crowd alert: Navigating via the less crowded accessible pathway.")
+        elif has_west_lift:
+            voice_parts.append("West Lifts 1 and 2 are operating with normal foot traffic.")
+
+        # Check for outdoor path milestones dynamically from Dijkstra path
+        outdoor_landmarks = []
+        for n_id in path:
+            node_meta = self.nodes_data.get(n_id, {})
+            if node_meta.get("floor", 0) == 0 and ("entrance" in n_id or "roundabout" in n_id or "ground" in n_id or "cafeteria" in n_id or "parking" in n_id):
+                clean_lbl = node_meta.get("label", n_id.replace("_", " ").title()).split("(")[0].strip()
+                start_clean = start_label.split("(")[0].strip()
+                dest_clean = dest_label.split("(")[0].strip()
+                if clean_lbl not in outdoor_landmarks and clean_lbl != start_clean and clean_lbl != dest_clean:
+                    outdoor_landmarks.append(clean_lbl)
+
+        if outdoor_landmarks:
+            if len(outdoor_landmarks) == 1:
+                voice_parts.append(f"Follow the paved campus walkway to {outdoor_landmarks[0]}.")
+            elif len(outdoor_landmarks) == 2:
+                voice_parts.append(f"Follow the paved campus walkway past {outdoor_landmarks[0]} to {outdoor_landmarks[1]}.")
+            else:
+                landmarks_str = ", ".join(outdoor_landmarks[:-1])
+                voice_parts.append(f"Follow the paved campus walkway past {landmarks_str}, and enter {outdoor_landmarks[-1]}.")
+
+        # Add key elevator / stairs transition actions to voice
+        for tr in floor_transitions:
+            if tr.get("type") == "elevator":
+                target_fl = f"Floor {tr.get('toFloor')}" if tr.get('toFloor', 0) > 0 else "Ground Floor"
+                if has_east_lift:
+                    voice_parts.append(f"Take the elevator at East Lift Lobby (Lifts 3 & 4) up to {target_fl}.")
+                elif has_west_lift:
+                    voice_parts.append(f"Take the elevator at West Lift Lobby (Lifts 1 & 2) up to {target_fl}.")
+                else:
+                    voice_parts.append(f"Take the elevator up to {target_fl}.")
+            elif tr.get("type") == "stairs":
+                target_fl = f"Floor {tr.get('toFloor')}" if tr.get('toFloor', 0) > 0 else "Ground Floor"
+                voice_parts.append(f"Take the stairs up to {target_fl}.")
+
+        # Add bridge transitions if moving across buildings on upper floors
+        spoken_bridges = set()
+        for s in steps:
+            if "skywalk bridge into" in s.lower():
+                import re
+                b_match = re.search(r"into\s+(Block\s+[A-E])", s, re.IGNORECASE)
+                b_name = b_match.group(1).title() if b_match else "the adjacent block"
+                if b_name not in spoken_bridges:
+                    spoken_bridges.add(b_name)
+                    voice_parts.append(f"Cross the connecting skywalk into {b_name}.")
+
+        voice_parts.append(f"Walk down the corridor to arrive at {dest_label}. Total distance is {total_distance} meters.")
+        voice_script = " ".join(voice_parts)
 
         return {
             "status": "success",

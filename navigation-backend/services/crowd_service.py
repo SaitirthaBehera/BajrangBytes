@@ -259,58 +259,58 @@ CROWD_ZONE_REGISTRY: Dict[str, List[Dict[str, Any]]] = {
         {
             "id": "cz-e0-west-lifts",
             "name": "West High-Capacity Elevator Bank (Lifts 1 & 2)",
-            "base_count": 15,
+            "base_count": 18,
             "area_sqm": 32.5,
             "phase_seed": 1.6
         },
         {
             "id": "cz-e0-east-lifts",
             "name": "East Elevator Bank (Lifts 3 & 4)",
-            "base_count": 8,
+            "base_count": 3,
             "area_sqm": 32.0,
             "phase_seed": 2.9
         },
         {
             "id": "cz-e0-central-hall",
             "name": "Central Grand Spine Corridor",
-            "base_count": 7,
+            "base_count": 4,
             "area_sqm": 44.0,
             "phase_seed": 4.2
         },
         {
             "id": "cz-e0-south-hall",
-            "name": "South Auditoria Corridor",
-            "base_count": 5,
+            "name": "South Auditoria Corridor & Main Stairs",
+            "base_count": 2,
             "area_sqm": 45.0,
             "phase_seed": 5.6
         }
     ],
     "E-F1": [
         {
-            "id": "cz-e1-east-lifts",
-            "name": "East Elevator Lobby (Lifts 3 & 4)",
-            "base_count": 16,
-            "area_sqm": 32.5,
-            "phase_seed": 0.7
-        },
-        {
             "id": "cz-e1-west-lifts",
             "name": "West Elevator Lobby (Lifts 1 & 2)",
-            "base_count": 16,
+            "base_count": 18,
             "area_sqm": 31.0,
             "phase_seed": 2.2
         },
         {
+            "id": "cz-e1-east-lifts",
+            "name": "East Elevator Lobby (Lifts 3 & 4)",
+            "base_count": 3,
+            "area_sqm": 32.5,
+            "phase_seed": 0.7
+        },
+        {
             "id": "cz-e1-central-hall",
             "name": "Central Teaching Hallway",
-            "base_count": 6,
+            "base_count": 4,
             "area_sqm": 43.0,
             "phase_seed": 3.8
         },
         {
             "id": "cz-e1-south-hall",
             "name": "South Tutorial Concourse & Main Stairs",
-            "base_count": 3,
+            "base_count": 2,
             "area_sqm": 40.0,
             "phase_seed": 5.1
         }
@@ -319,46 +319,76 @@ CROWD_ZONE_REGISTRY: Dict[str, List[Dict[str, Any]]] = {
         {
             "id": "cz-e2-bridge-d",
             "name": "Skywalk Gateway (Connecting to D-Block Floor 2)",
-            "base_count": 20,
+            "base_count": 5,
             "area_sqm": 34.0,
             "phase_seed": 1.2
         },
         {
             "id": "cz-e2-west-lifts",
             "name": "West Elevator Area (Lifts 1 & 2)",
-            "base_count": 9,
+            "base_count": 18,
             "area_sqm": 32.0,
             "phase_seed": 2.6
         },
         {
             "id": "cz-e2-east-lifts",
             "name": "East Elevator Area (Lifts 3 & 4)",
-            "base_count": 5,
+            "base_count": 3,
             "area_sqm": 33.0,
             "phase_seed": 4.1
         },
         {
             "id": "cz-e2-central-hall",
-            "name": "Central Departmental Hallway",
-            "base_count": 4,
+            "name": "Central Departmental Hallway & Stairs",
+            "base_count": 3,
             "area_sqm": 40.0,
             "phase_seed": 5.5
         }
     ],
     "E-F3": [
         {
-            "id": "cz-e3-central-hall",
-            "name": "Central Computing Concourse",
-            "base_count": 8,
-            "area_sqm": 41.0,
-            "phase_seed": 1.8
-        },
-        {
             "id": "cz-e3-west-lifts",
-            "name": "Level 3 Elevator Hall",
-            "base_count": 6,
+            "name": "West Elevator Hall (Lifts 1 & 2)",
+            "base_count": 18,
             "area_sqm": 32.0,
             "phase_seed": 3.4
+        },
+        {
+            "id": "cz-e3-east-lifts",
+            "name": "East Elevator Hall (Lifts 3 & 4)",
+            "base_count": 3,
+            "area_sqm": 32.0,
+            "phase_seed": 1.5
+        },
+        {
+            "id": "cz-e3-central-hall",
+            "name": "Central Computing Concourse & Stairs",
+            "base_count": 4,
+            "area_sqm": 41.0,
+            "phase_seed": 1.8
+        }
+    ],
+    "E-F4": [
+        {
+            "id": "cz-e4-west-lifts",
+            "name": "West Elevator Hall (Lifts 1 & 2)",
+            "base_count": 18,
+            "area_sqm": 32.0,
+            "phase_seed": 3.4
+        },
+        {
+            "id": "cz-e4-east-lifts",
+            "name": "East Elevator Hall (Lifts 3 & 4)",
+            "base_count": 3,
+            "area_sqm": 32.0,
+            "phase_seed": 1.5
+        },
+        {
+            "id": "cz-e4-central-hall",
+            "name": "Central Research Hallway & Stairs",
+            "base_count": 3,
+            "area_sqm": 41.0,
+            "phase_seed": 1.8
         }
     ]
 }

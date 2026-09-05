@@ -41,29 +41,36 @@ class NavigateRequest(BaseModel):
 def _normalize_node_id(node_id: Optional[str]) -> str:
     if not node_id:
         return "main_entrance"
-    n = node_id.strip().lower()
-    if "library" in n:
+    n = node_id.strip()
+    if n in router_engine.nodes_data:
+        return n
+    nl = n.lower()
+    if nl in router_engine.nodes_data:
+        return nl
+    if "library" in nl:
         return "library_entrance"
-    if "auditorium" in n:
+    if "auditorium" in nl:
         return "auditorium_entrance"
-    if "cafeteria" in n:
+    if "cafeteria" in nl:
         return "iter_cafeteria"
-    if "block-a" in n or "block_a" in n:
+    if "block-a" in nl or "block_a" in nl:
         return "block_a_entrance"
-    if "block-b" in n or "block_b" in n:
+    if "block-b" in nl or "block_b" in nl:
         return "block_b_entrance"
-    if "block-c" in n or "block_c" in n:
-        return "block_c_entrance"
-    if "block-d" in n or "block_d" in n:
+    if "block-c" in nl or "block_c" in nl:
+        return "block_c_football_entrance"
+    if "block-d" in nl or "block_d" in nl:
         return "block_d_entrance"
-    if "block-e" in n or "block_e" in n:
-        return "block_e_entrance"
+    if "block-e" in nl or "block_e" in nl:
+        return "block_e_main_entrance"
     return n
 
 def _build_route_response(start_id: str, end_id: str, profile: str) -> Dict[str, Any]:
+    norm_start = _normalize_node_id(start_id)
+    norm_end = _normalize_node_id(end_id)
     route_result = router_engine.find_route(
-        start_id=start_id,
-        end_id=end_id,
+        start_id=norm_start,
+        end_id=norm_end,
         user_profile=profile
     )
 
@@ -98,8 +105,8 @@ def _build_route_response(start_id: str, end_id: str, profile: str) -> Dict[str,
 
     return {
         "status": "success",
-        "start_location": start_id,
-        "end_location": end_id,
+        "start_location": norm_start,
+        "end_location": norm_end,
         "profile_used": profile,
         "total_distance_meters": total_dist,
         "estimated_time_minutes": est_mins,
@@ -114,8 +121,8 @@ def _build_route_response(start_id: str, end_id: str, profile: str) -> Dict[str,
         "crowd_advisory": route_result.get("crowd_advisory"),
         # Legacy/Twin digital map fields for UI compatibility
         "fromNode": {
-            "id": start_id,
-            "name": start_id.replace("_", " ").title(),
+            "id": norm_start,
+            "name": norm_start.replace("_", " ").title(),
             "floorId": floors_involved[0] if floors_involved else 0,
             "buildingId": "soa_iter_campus",
             "type": "entrance",
@@ -124,8 +131,8 @@ def _build_route_response(start_id: str, end_id: str, profile: str) -> Dict[str,
             "y": 20
         },
         "toNode": {
-            "id": end_id,
-            "name": end_id.replace("_", " ").title(),
+            "id": norm_end,
+            "name": norm_end.replace("_", " ").title(),
             "floorId": floors_involved[-1] if floors_involved else 0,
             "buildingId": "soa_iter_campus",
             "type": "room",
@@ -142,15 +149,15 @@ def _build_route_response(start_id: str, end_id: str, profile: str) -> Dict[str,
 
 @router.post("/navigate")
 async def post_accessible_route(payload: NavigateRequest):
-    start_id = _normalize_node_id(payload.startNodeId or payload.start)
-    end_id = _normalize_node_id(payload.targetNodeId or payload.end or "library_entrance")
+    start_id = payload.startNodeId or payload.start or "main_entrance"
+    end_id = payload.targetNodeId or payload.end or "library_entrance"
     profile = (payload.profile or "wheelchair").lower()
     return _build_route_response(start_id, end_id, profile)
 
 @router.get("/navigate")
 def get_accessible_route(
-    start: CampusNode = Query(CampusNode.MAIN_ENTRANCE, description="Select start location from dropdown"),
-    end: CampusNode = Query(CampusNode.LIBRARY, description="Select destination from dropdown"),
-    profile: DisabilityProfile = Query(DisabilityProfile.WHEELCHAIR, description="Select accessibility profile")
+    start: str = Query("block_e_main_entrance", description="Start node identifier"),
+    end: str = Query("e_f2_r05", description="Destination node identifier"),
+    profile: str = Query("wheelchair", description="Accessibility profile")
 ):
-    return _build_route_response(start.value, end.value, profile.value)
+    return _build_route_response(start, end, profile)

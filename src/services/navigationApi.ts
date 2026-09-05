@@ -228,6 +228,13 @@ export interface InvolvedFloorItem {
   floorPlanUrl?: string;
 }
 
+export interface RouteCrowdAdvisory {
+  avoided_congestion: boolean;
+  crowd_level: 'low' | 'moderate' | 'high';
+  summary: string;
+  advisory?: string;
+}
+
 export interface NavigationRouteResponse {
   status: 'success' | 'error';
   start_location: string;
@@ -245,6 +252,7 @@ export interface NavigationRouteResponse {
   voice_guidance?: string;
   campus_map_url?: string;
   voice_navigation?: string;
+  crowd_advisory?: RouteCrowdAdvisory;
   error?: string;
 }
 

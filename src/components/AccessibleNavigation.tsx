@@ -22,7 +22,9 @@ import {
   Clock, 
   Footprints, 
   ShieldCheck,
-  Radio
+  Radio,
+  Users,
+  Info
 } from 'lucide-react';
 import { LocationCascadeSelector } from './LocationCascadeSelector';
 import { CAMPUS_NODES } from '../utils/campusGraph';
@@ -155,7 +157,8 @@ export const AccessibleNavigation: React.FC<AccessibleNavigationProps> = ({
           })),
           pathNodeIds: result.path_nodes,
           warnings: profile === 'wheelchair' ? [] : ['Check live weather conditions along outdoor campus walkways'],
-          accessibleFeaturesUsed: startLoc.features.concat(endLoc.features).slice(0, 3)
+          accessibleFeaturesUsed: startLoc.features.concat(endLoc.features).slice(0, 3),
+          crowd_advisory: result.crowd_advisory
         };
 
         if (onRouteCalculated) {
@@ -365,13 +368,40 @@ export const AccessibleNavigation: React.FC<AccessibleNavigationProps> = ({
               {/* Summary Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
                 <div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center space-x-1">
                       <ShieldCheck className="w-3.5 h-3.5 mr-1" />
                       <span>{activeFastApiRoute.profile_used.toUpperCase()} ROUTE VERIFIED</span>
                     </span>
+
+                    {activeFastApiRoute.crowd_advisory && (
+                      <span
+                        id="badge-crowd-advisory"
+                        className={`text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center space-x-1 ${
+                          activeFastApiRoute.crowd_advisory.avoided_congestion
+                            ? 'bg-blue-100 text-blue-800 border border-blue-200'
+                            : activeFastApiRoute.crowd_advisory.crowd_level === 'high'
+                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                            : activeFastApiRoute.crowd_advisory.crowd_level === 'moderate'
+                            ? 'bg-yellow-100 text-yellow-800 border border-yellow-200'
+                            : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                        }`}
+                      >
+                        <Users className="w-3.5 h-3.5 mr-1 shrink-0" />
+                        <span>{activeFastApiRoute.crowd_advisory.summary}</span>
+                      </span>
+                    )}
+
                     <span className="text-xs font-mono text-slate-400">FastAPI /api/navigate</span>
                   </div>
+
+                  {activeFastApiRoute.crowd_advisory?.advisory && (
+                    <div id="text-crowd-advisory-note" className="mt-1.5 flex items-center space-x-1.5 text-xs text-blue-700 font-medium">
+                      <Info className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+                      <span>{activeFastApiRoute.crowd_advisory.advisory}</span>
+                    </div>
+                  )}
+
                   <h3 className="text-xl font-bold text-slate-900 mt-2">
                     {getLocationLabel(activeFastApiRoute.start_location)} → {getLocationLabel(activeFastApiRoute.end_location)}
                   </h3>
@@ -424,12 +454,7 @@ export const AccessibleNavigation: React.FC<AccessibleNavigationProps> = ({
 
               {/* Turn-by-Turn Voice Navigation Section */}
               {(() => {
-                let voiceText = activeFastApiRoute.voice_guidance || activeFastApiRoute.voice_navigation;
-                if (!voiceText) {
-                  const startClean = getLocationLabel(activeFastApiRoute.start_location).replace(/\(.*?\)/g, '').replace(/Block\s+[A-Z]\s*[-]\s*/gi, '').trim();
-                  const endClean = getLocationLabel(activeFastApiRoute.end_location).replace(/\(.*?\)/g, '').replace(/Block\s+[A-Z]\s*[-]\s*/gi, '').trim();
-                  voiceText = `Navigating from ${startClean} to ${endClean}.`;
-                }
+                const voiceText = activeFastApiRoute.voice_navigation || activeFastApiRoute.voice_guidance || 'Follow the step-by-step directions to reach your destination.';
 
                 return (
                   <div className="bg-purple-50 border border-purple-200 p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
@@ -446,7 +471,7 @@ export const AccessibleNavigation: React.FC<AccessibleNavigationProps> = ({
                     <button
                       id="btn-speak-voice-navigation"
                       type="button"
-                      onClick={() => handleSpeakVoice(voiceText!)}
+                      onClick={() => handleSpeakVoice(voiceText)}
                       className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center space-x-2 cursor-pointer transition-all shrink-0 ${
                         isSpeaking
                           ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-md'
