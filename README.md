@@ -1,3 +1,5 @@
+
+
 <div align="center">
   <h1>AccessTwin ♿🏛️</h1>
   <h3><i>"Find your destination. Follow the smartest route."</i></h3>
@@ -162,13 +164,13 @@ npm run dev
 
 ## 👥 Team & Attribution
 
-This project was ideated, engineered, and shipped by **Team Bajrang Bytes** for the **SOA Ideathon 2026 (Problem Statement: SOAIDEATHON-S37)**:
+This project was built by **Team Bajrang Bytes** for **SOA Ideathon 2026 (Problem Statement: SOAIDEATHON-S37)**:
 
-* 👨‍💻 **Saitirtha Behera** — *3D WebGL Digital Twin, Crowd-Aware Dijkstra Engine & Voice Wayfinding Architecture* ([@SaitirthaBehera](https://github.com/SaitirthaBehera))
-* 👨‍💻 **Sujit Kumar Nayak** — *Computer Vision Telemetry, AI Multimodal Integration & Data Pipeline* ([@sujitnayak-web](https://github.com/sujitnayak-web))
+* 👨‍💻 **Saitirtha Behera** ([@SaitirthaBehera](https://github.com/SaitirthaBehera))
+* 👨‍💻 **Sujit Kumar Nayak** ([@sujitnayak-web](https://github.com/sujitnayak-web))
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by <b>Team Bajrang Bytes</b> for an accessible, barrier-free, and inclusive tomorrow.</sub>
+  <sub>Built with ❤️ by <b>Team Bajrang Bytes</b> for an accessible, barrier-free tomorrow.</sub>
 </div>
