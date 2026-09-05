@@ -39,13 +39,32 @@ In India, millions of citizens with physical or visual impairments struggle to n
 
 ## 📸 Application Screenshots
 
-| 🌐 3D Spatial Digital Twin (WebGL) | 🧠 Live Crowd-Aware Navigation |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/e67b5f68-5fd0-4d6d-80d4-dfd3ac2158b5" width="100%" alt="3D Digital Twin" /> | <img src="https://github.com/user-attachments/assets/4dbe8b9f-d91d-4e43-b645-0ec40f446e5e" width="100%" alt="Live Crowd-Aware Navigation" /> |
-
-| 📸 TwinGram Community Social Feed | 🤖 AI Multimodal Barrier Detection |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/41c2be88-46f5-43ad-b09b-4913dec15053" width="100%" alt="TwinGram Feed" /> | <img src="https://github.com/user-attachments/assets/66bc54a9-4781-4d2a-9fe7-43964c4aeae0" width="100%" alt="AI Detection" /> |
+<table>
+  <tr>
+    <th width="50%" align="center">🌐 3D Spatial Digital Twin (WebGL)</th>
+    <th width="50%" align="center">🧠 Live Crowd-Aware Navigation</th>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="https://github.com/user-attachments/assets/e67b5f68-5fd0-4d6d-80d4-dfd3ac2158b5" width="100%" alt="3D Digital Twin" />
+    </td>
+    <td width="50%" align="center">
+      <img src="https://github.com/user-attachments/assets/4dbe8b9f-d91d-4e43-b645-0ec40f446e5e" width="100%" alt="Live Crowd-Aware Navigation" />
+    </td>
+  </tr>
+  <tr>
+    <th width="50%" align="center">📸 TwinGram Community Social Feed</th>
+    <th width="50%" align="center">🤖 AI Multimodal Barrier Detection</th>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img src="https://github.com/user-attachments/assets/41c2be88-46f5-43ad-b09b-4913dec15053" width="100%" alt="TwinGram Feed" />
+    </td>
+    <td width="50%" align="center">
+      <img src="https://github.com/user-attachments/assets/66bc54a9-4781-4d2a-9fe7-43964c4aeae0" width="100%" alt="AI Detection" />
+    </td>
+  </tr>
+</table>
 ---
 
 ## 🛠️ Tech Stack & Architecture
