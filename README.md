@@ -94,7 +94,81 @@ This project uses `concurrently` to run both the React frontend and the FastAPI 
 * **Node.js (v18+)** - [Download Node.js](https://nodejs.org/)
 * **Python (v3.10+)** - [Download Python](https://www.python.org/downloads/)
 
-### 1. Clone & Setup
+---
+
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/SaitirthaBehera/BajrangBytes.git
-cd BajrangBytes
+git clone https://github.com/SaitirthaBehera/AccessTwin.git
+cd AccessTwin
+```
+
+---
+
+### 2. Install Frontend Dependencies
+```bash
+npm install
+```
+
+---
+
+### 3. Setup Python AI Backend (`venv`)
+```powershell
+# Navigate into backend directory
+cd navigation-backend
+
+# Create virtual environment (Python 3.10 or 3.11)
+py -3.11 -m venv venv
+
+# Activate Virtual Environment (Windows PowerShell)
+.\venv\Scripts\Activate.ps1
+
+# Install backend dependencies (FastAPI, YOLO, NetworkX, Uvicorn)
+pip install -r requirements.txt
+
+# Return to root directory
+cd ..
+```
+
+---
+
+### 4. Configure Environment & API Keys (`.env`)
+Create a `.env` file in the root directory:
+```bash
+cp .env.example .env
+```
+
+Add your API credentials inside `.env`:
+```env
+# Google Gemini Multimodal Vision API
+GEMINI_API_KEY="your_gemini_api_key_here"
+
+# Supabase Real-time Cloud Database
+VITE_SUPABASE_URL="your_supabase_project_url"
+VITE_SUPABASE_ANON_KEY="your_supabase_anon_key"
+```
+
+---
+
+### 5. Launch Full-Stack Application
+Run both Frontend & AI Backend simultaneously with a single command from the root directory:
+```bash
+npm run dev
+```
+
+* 🌐 **Frontend Web Application:** `http://localhost:3000`
+* ⚙️ **FastAPI Backend & Interactive Swagger API Docs:** `http://localhost:8000/docs`
+
+---
+
+## 👥 Team & Attribution
+
+This project was ideated, engineered, and shipped by **Team Bajrang Bytes** for the **SOA Ideathon 2026 (Problem Statement: SOAIDEATHON-S37)**:
+
+* 👨‍💻 **Saitirtha Behera** — *3D WebGL Digital Twin, Crowd-Aware Dijkstra Engine & Voice Wayfinding Architecture* ([@SaitirthaBehera](https://github.com/SaitirthaBehera))
+* 👨‍💻 **Sujit Kumar Nayak** — *Computer Vision Telemetry, AI Multimodal Integration & Data Pipeline* ([@sujitnayak-web](https://github.com/sujitnayak-web))
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by <b>Team Bajrang Bytes</b> for an accessible, barrier-free, and inclusive tomorrow.</sub>
+</div>
